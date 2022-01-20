@@ -1,16 +1,24 @@
-import '../styles/global.css'
 import { MDXProvider } from '@mdx-js/react'
+import '@/src/global.css'
 
-const components = {
-  h1: ({ children }) => {
-    return <h1 className="text-red-200">{children}</h1>
-  },
+const tailwind = {
+  h1: 'text-gray-900',
+  h2: 'text-gray-700',
+  h3: 'text-gray-500',
 }
+
+const components = {}
+Object.entries(tailwind).forEach((e) => {
+  const Tag = e[0]
+  components[Tag] = ({ children }) => <Tag className={e[1]}>{children}</Tag>
+})
 
 function MyApp({ Component, pageProps }) {
   return (
     <MDXProvider components={components}>
-      <Component {...pageProps} />
+      <div className='my-10 mx-auto max-w-3xl px-12'>
+        <Component {...pageProps} />
+      </div>
     </MDXProvider>
   )
 }
