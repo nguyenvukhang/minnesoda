@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react'
-import '@/src/global.css'
+import '../src/global.css'
 import Link from 'next/link'
 import { MathJax, MathJaxContext } from 'better-react-mathjax'
 import { useState } from 'react'
