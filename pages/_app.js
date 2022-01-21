@@ -7,9 +7,7 @@ import { useState } from 'react'
 const Menubar = ({ state, components }) => {
   const [math, setMath] = state
 
-  const toggleButtonColor = math
-    ? 'text-blue-500'
-    : 'text-neutral-400'
+  const toggleButtonColor = math ? 'text-blue-500' : 'text-neutral-400'
   return (
     <div className="mb-8 flex flex-row">
       <div className="flex-1">
@@ -17,7 +15,7 @@ const Menubar = ({ state, components }) => {
       </div>
       <div className="flex">
         <components.a href="">Reload</components.a>
-        <div className='w-12'/>
+        <div className="w-12" />
         <a
           className={`${toggleButtonColor} cursor-pointer hover:underline`}
           onClick={() => setMath(!math)}
@@ -57,6 +55,23 @@ function MyApp({ Component, pageProps }) {
   }
 
   const components = { a, pre, inlineCode }
+
+  const h = {
+    linked: ['h1', 'h2'],
+    unlinked: ['h3', 'h4', 'h5', 'h6']
+  }
+
+  h.linked.forEach((Tag) => {
+    components[Tag] = ({ children }) => (
+      <Tag id={children.replace(/ /g, '-')} className="header">
+        {children}
+      </Tag>
+    )
+  })
+
+  h.unlinked.forEach((Tag) => {
+    components[Tag] = ({ children }) => <Tag className="header">{children}</Tag>
+  })
 
   return (
     <MDXProvider components={components}>

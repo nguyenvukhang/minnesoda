@@ -5,40 +5,94 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply text-gray-900
-    relative
-    before:absolute
-    before:content-["#"]
-    before:left-_2-ex
-    before:text-gray-400;
-  }
-  h2 {
-    @apply text-gray-700;
-  }
-  h3 {
-    @apply text-gray-500;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-gray-900 relative bg-blue-50 mt-1-h;
   }
   p {
     @apply my-1-h;
   }
   ul {
-    @apply list-outside list-none mb-2;
+    @apply list-outside list-none ml-2-ex mb-1-h;
   }
   ol {
-    @apply list-outside list-decimal ml-4-ex;
+    @apply list-outside list-none ml-4-ex mb-1-h;
   }
   a {
     @apply text-blue-500 cursor-pointer
     hover:underline
-    hover:bg-blue-50
+    hover:bg-blue-50;
+  }
+  hr {
+    @apply text-red-500 border-t my-1-h;
   }
 }
 
 @layer components {
+  /* header left-side markers */
+  .header::before {
+    position: absolute;
+    left: -0.6rem;
+    color: theme('colors.gray.300');
+  }
+  h1::before {
+    content: '#';
+    font-size: 1.1rem;
+    transform: translate(-100%, -0.15rem);
+  }
+  h2::before {
+    content: '##';
+    font-size: 0.9rem;
+    transform: translate(-100%, 0.05rem);
+  }
+  h3::before {
+    content: '###';
+    font-size: 0.8rem;
+    transform: translate(-100%, 0.1rem);
+  }
+  h4::before {
+    content: '###';
+    font-size: 0.8rem;
+    transform: translate(-100%, 0.1rem);
+  }
+  h5::before {
+    content: '###';
+    font-size: 0.8rem;
+    transform: translate(-100%, 0.1rem);
+  }
+  h6::before {
+    content: '###';
+    font-size: 0.8rem;
+    transform: translate(-100%, 0.1rem);
+  }
+
+  /* remove bottom margin for nested lists */
+  li > ul,
+  ol {
+    margin-bottom: 0;
+  }
+
+  /* asterisks for bullet points */
   ul > li::before {
     content: '*';
     margin-right: 1ex;
+    color: theme('colors.gray.400');
+  }
+
+  /* custom counter for more control over ordered lists */
+  ol {
+    counter-reset: my_counter;
+    position: relative;
+  }
+  ol > li::before {
+    position: absolute;
+    transform: translateX(calc(-100% - 1ex));
+    content: counter(my_counter);
+    counter-increment: my_counter;
     color: theme('colors.gray.400');
   }
 }
