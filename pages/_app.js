@@ -14,9 +14,10 @@ const Menubar = ({ state, components }) => {
     <div className="mb-8 flex flex-row">
       <div className="flex-1">
         <components.a href="/">Home</components.a>{' '}
-        <components.a href="">Reload</components.a>
       </div>
       <div className="flex">
+        <components.a href="">Reload</components.a>
+        <div className='w-12'/>
         <a
           className={`${toggleButtonColor} cursor-pointer hover:underline`}
           onClick={() => setMath(!math)}
