@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps }) {
   const SlowComponent = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('done loading')
-    }, 3000)
+    }, 2400)
   })
   const [a, setA] = useState('still loading')
 
@@ -74,15 +74,33 @@ function MyApp({ Component, pageProps }) {
     return `${standard} ${variable}`
   }
 
+  const SlowMathComponent = (thestuff, mathtype) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(
+          <div className={mathtype ? 'block' : 'hidden'}>
+            <MathJax
+              onLoad={console.log('math loaded')}
+            >{`$$${thestuff}$$`}</MathJax>
+          </div>
+        )
+      }, 2400)
+    })
+  }
+
   components.pre = ({ children }) => {
-    return (
-      <>
-        <div className={mathtype ? 'block' : 'hidden'}>
-          <MathJax>{`$$${children.props.children}$$`}</MathJax>
-        </div>
-        <div className={mathClass(mathtype)}>{children}</div>
-      </>
-    )
+    const switchyMath = <div className={mathClass(mathtype)}>{children}</div>
+
+    const initialOutput = <div className="text-orange-500">{children}</div>
+    const [output, setOutput] = useState(initialOutput)
+
+    SlowMathComponent(children.props.children, mathtype).then((e) => {
+      setOutput(e)
+    })
+    //  <div className={mathtype ? 'block' : 'hidden'}>
+    //    <MathJax>{`$$${children.props.children}$$`}</MathJax>
+    //  </div>
+    return <>{output}</>
   }
 
   components.inlineCode = ({ children }) => {
