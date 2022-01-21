@@ -51,26 +51,56 @@ const Menubar = ({ functions }) => {
 }
 
 function MyApp({ Component, pageProps }) {
+  const [loading, setLoading] = useState(true)
+
+  const SlowComponent = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('done loading')
+    }, 3000)
+  })
+  const [a, setA] = useState('still loading')
+
+  function SwapOutOnLoad() {
+    SlowComponent.then((e) => {
+      setA(e)
+    })
+    return <h1>{a}</h1>
+  }
+
   const [mathtype, setMathtype] = useState(true)
+  const mathClass = () => {
+    const standard = 'my-4 text-pink-500'
+    const variable = mathtype ? 'hidden' : 'inline-block'
+    return `${standard} ${variable}`
+  }
+
   components.pre = ({ children }) => {
-    return mathtype ? (
-      <MathJax>{`$$${children.props.children}$$`}</MathJax>
-    ) : (
-      <div className="my-4 text-pink-500">{children}</div>
+    return (
+      <>
+        <div className={mathtype ? 'block' : 'hidden'}>
+          <MathJax>{`$$${children.props.children}$$`}</MathJax>
+        </div>
+        <div className={mathClass(mathtype)}>{children}</div>
+      </>
     )
   }
+
   components.inlineCode = ({ children }) => {
-    return mathtype ? (
-      <MathJax inline>{`\\(${children}\\)`}</MathJax>
-    ) : (
-      <div className="text-pink-500">{children}</div>
+    return (
+      <>
+        <span className={mathtype ? 'inline-block' : 'hidden'}>
+          <MathJax inline>{`\\(${children}\\)`}</MathJax>
+        </span>
+        <span className={mathClass(mathtype)}>{children}</span>
+      </>
     )
   }
 
   return (
     <MDXProvider components={components}>
       <MathJaxContext>
-        <div className="my-8 mx-auto max-w-3xl px-12">
+        <SwapOutOnLoad />
+        <div className="my-8 mx-auto max-w-3xl px-8">
           <Menubar functions={[mathtype, setMathtype]} />
           <Component {...pageProps} />
         </div>
