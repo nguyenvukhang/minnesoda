@@ -3,3 +3,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-gray-900
+    relative
+    before:absolute
+    before:content-["#"]
+    before:left-_2-ex
+    before:text-gray-400;
+  }
+  h2 {
+    @apply text-gray-700;
+  }
+  h3 {
+    @apply text-gray-500;
+  }
+  p {
+    @apply my-1-h;
+  }
+  ul {
+    @apply list-outside list-none mb-2;
+  }
+  ol {
+    @apply list-outside list-decimal ml-4-ex;
+  }
+  a {
+    @apply text-blue-500 cursor-pointer
+    hover:underline
+    hover:bg-blue-50
+  }
+}
+
+@layer components {
+  ul > li::before {
+    content: '*';
+    margin-right: 1ex;
+    color: theme('colors.gray.400');
+  }
+}
