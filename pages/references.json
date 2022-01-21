@@ -1,0 +1,14 @@
+{
+  "Linear Algebra": {
+    "defined": {
+      "title": "Linear Systems",
+      "href": "/la/linear-systems"
+    },
+    "referenced": [
+      {
+        "title": "Linear Systems",
+        "href": "/la/linear-systems"
+      }
+    ]
+  }
+}
