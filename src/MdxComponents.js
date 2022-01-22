@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { MathJax } from 'better-react-mathjax'
 import { useState } from 'react'
 import references from '../pages/references.json'
+import ReactTooltip from 'react-tooltip'
 
 /* tailwind genius */
 import resolveConfig from 'tailwindcss/resolveConfig'
@@ -11,26 +12,15 @@ const tw = resolveConfig(tailwindConfig)
 
 function handleMouseUp() {
 
-  var a = document.createElement('span')
-  a.setAttribute('tabindex', '0')
-  a.setAttribute('className', 'text-green-200')
-  a.setAttribute('data-toggle', 'popover')
-  a.setAttribute('data-content', 'Some content inside the popover')
-  a.setAttribute('title', 'popover title')
-
-  const wrap = <div>stuff</div>
-
   const selection = window.getSelection()
   const query = selection.toString().toLowerCase().trim()
+
   if (query === '') {
     return
   }
+
   if (references.hasOwnProperty(query)) {
     console.log('has reference!')
-    const range = selection.getRangeAt(0).cloneRange()
-    range.surroundContents(a)
-    selection.removeAllRanges()
-    selection.addRange(range)
   } else {
     console.log("doesn't have a reference")
   }
