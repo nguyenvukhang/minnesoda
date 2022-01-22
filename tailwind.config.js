@@ -10,6 +10,9 @@ module.exports = {
         '2-ex': '2ex',
         '4-ex': '4ex',
       },
+      height: {
+        'screen-80': '80vh'
+      },
       inset: {
         '_2-ex': '-2ex',
       },

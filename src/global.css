@@ -17,10 +17,10 @@
     @apply my-1-h;
   }
   ul {
-    @apply list-outside list-none ml-2-ex mb-1-h;
+    @apply list-outside list-none ml-2-ex mb-1-h relative;
   }
   ol {
-    @apply list-outside list-none ml-4-ex mb-1-h;
+    @apply list-outside list-none ml-4-ex mb-1-h relative;
   }
   a {
     @apply text-blue-500 cursor-pointer
@@ -84,21 +84,21 @@
 
   /* asterisks for bullet points */
   ul > li::before {
-    content: '*';
-    margin-right: 1ex;
     color: theme('colors.gray.400');
+    content: '*';
+    position: absolute;
+    transform: translateX(calc(-100% - 1ex));
   }
 
   /* custom counter for more control over ordered lists */
   ol {
     counter-reset: my_counter;
-    position: relative;
   }
   ol > li::before {
-    position: absolute;
-    transform: translateX(calc(-100% - 1ex));
+    color: theme('colors.gray.400');
     content: counter(my_counter);
     counter-increment: my_counter;
-    color: theme('colors.gray.400');
+    position: absolute;
+    transform: translateX(calc(-100% - 1ex));
   }
 }
