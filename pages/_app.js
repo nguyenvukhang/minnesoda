@@ -5,6 +5,7 @@ import { useState } from 'react'
 import Menubar from '../src/Menubar'
 import getComponents from '../src/MdxComponents'
 import PermaFloat, { handleMouseUp } from '../src/PermaFloat'
+import MathjaxConfig from '../src/MathjaxConfig'
 
 function MyApp({ Component, pageProps }) {
   const [math, setMath] = useState(true)
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <MDXProvider components={components}>
-      <MathJaxContext>
+      <MathJaxContext config={MathjaxConfig}>
         <div
           className="my-8 mx-auto max-w-3xl px-6"
           onMouseUp={() => handleMouseUp(setFloatRect)}
