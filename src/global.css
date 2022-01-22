@@ -48,32 +48,32 @@
   h1::before {
     content: '#';
     font-size: 1.1rem;
-    transform: translate(-100%, -0.15rem);
+    transform: translate(-100%, -0.14rem);
   }
   h2::before {
     content: '##';
     font-size: 0.9rem;
-    transform: translate(-100%, 0.05rem);
+    transform: translate(-100%, 0.07rem);
   }
   h3::before {
     content: '###';
     font-size: 0.8rem;
-    transform: translate(-100%, 0.1rem);
+    transform: translate(-100%, 0.14rem);
   }
   h4::before {
-    content: '###';
-    font-size: 0.8rem;
-    transform: translate(-100%, 0.1rem);
+    content: '####';
+    font-size: 0.7rem;
+    transform: translate(-100%, 0.24rem);
   }
   h5::before {
-    content: '###';
-    font-size: 0.8rem;
-    transform: translate(-100%, 0.1rem);
+    content: '#####';
+    font-size: 0.6rem;
+    transform: translate(-100%, 0.28rem);
   }
   h6::before {
-    content: '###';
-    font-size: 0.8rem;
-    transform: translate(-100%, 0.1rem);
+    content: '######';
+    font-size: 0.5rem;
+    transform: translate(-100%, 0.37rem);
   }
 
   /* remove bottom margin for nested lists */
