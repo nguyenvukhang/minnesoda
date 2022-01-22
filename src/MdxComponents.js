@@ -1,38 +1,10 @@
-import { Popover, ArrowContainer } from 'react-tiny-popover'
 import Link from 'next/link'
 import { MathJax } from 'better-react-mathjax'
-import React, { useState } from 'react'
-import references from '../pages/references.json'
 
 /* tailwind genius */
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../tailwind.config.js'
-const tw = resolveConfig(tailwindConfig)
-
-function handleMouseUp(setFloatRect) {
-  const selection = window.getSelection()
-  const query = selection.toString().toLowerCase().trim()
-
-  if (query === '') {
-    return
-  }
-
-  if (references.hasOwnProperty(query)) {
-    console.log('has reference!')
-    const range = selection.getRangeAt(0)
-    const rect = range.getBoundingClientRect()
-    setFloatRect({
-      top: rect.y + rect.height,
-      left: rect.x,
-      display: 'block',
-      position: 'absolute',
-      boxShadow: "2px 2px 2px #AAAAAA"
-    })
-  } else {
-    console.log("doesn't have a reference")
-  }
-  console.log('mouseup', query)
-}
+// import resolveConfig from 'tailwindcss/resolveConfig'
+// import tailwindConfig from '../tailwind.config.js'
+// const tw = resolveConfig(tailwindConfig)
 
 const getComponents = ({ math }) => {
   const a = ({ href, children }) => {
@@ -85,4 +57,3 @@ const getComponents = ({ math }) => {
 }
 
 export default getComponents
-export { handleMouseUp }

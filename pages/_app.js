@@ -3,8 +3,8 @@ import '../src/global.css'
 import { MathJaxContext } from 'better-react-mathjax'
 import { useState } from 'react'
 import Menubar from '../src/Menubar'
-import getComponents, { handleMouseUp } from '../src/MdxComponents'
-import PermaFloat from '../src/PermaFloat'
+import getComponents from '../src/MdxComponents'
+import PermaFloat, { handleMouseUp } from '../src/PermaFloat'
 
 function MyApp({ Component, pageProps }) {
   const [math, setMath] = useState(true)
