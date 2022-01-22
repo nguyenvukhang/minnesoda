@@ -15,9 +15,7 @@ const Tooltip = ({ router, query, removeFloat }) => {
       <div className="mt-1-h">Go to reference</div>
       <div className="flex flex-col">
         {references[query].references.map((e) => (
-          <Link href={e[1]}>
-            <a onClick={() => this.remove()}>{e[0]}</a>
-          </Link>
+            <a onClick={handleClick}>{e[0]}</a>
         ))}
       </div>
     </div>
