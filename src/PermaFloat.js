@@ -30,7 +30,7 @@ const PermaFloat = ({ floatRect, setFloatRect }) => {
   return (
     <div
       ref={floatRef}
-      className="bg-emerald-500"
+      className="bg-blue-100 px-4 py-2"
       style={floatRect}
     >
       Reference List

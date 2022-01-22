@@ -22,11 +22,11 @@ function handleMouseUp(setFloatRect) {
     const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
     setFloatRect({
-      top: rect.y,
+      top: rect.y + rect.height,
       left: rect.x,
-      padding: 2,
       display: 'block',
       position: 'absolute',
+      boxShadow: "2px 2px 2px #AAAAAA"
     })
   } else {
     console.log("doesn't have a reference")
