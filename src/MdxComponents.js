@@ -69,8 +69,15 @@ const getComponents = ({ math }) => {
     )
   }
 
+  const em = ({ children }) => {
+    return (
+      <span id={children.replace(/ /g, '-')}>{children}</span>
+    )
+  }
+
   const components = {
     a,
+    em,
     img,
     inlineCode,
     p,

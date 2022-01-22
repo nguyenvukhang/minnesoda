@@ -24,12 +24,24 @@ C_1C_2 + C_2C_3 + \ldots + C_{n-1}C_n <
 A_1A_2 + A_2A_3 + \ldots + A_{n-1}A_n
 ```
 
-With a difference big enough such that
+Let `C_iC_{i+1} = p` for all `i ∈ \{1,2,\ldots, n - 1\}`. Then let `d
+= c - p > 0`.
+
+The total length `A_1C_1 + C_1C_2 + C_2C_3 + \ldots + C_{n-1}C_n +
+C_nA_{n+1}` is `b + (n-1)p + a`.
+
+By triangle inequality, it is greater than or equal to `A_1A_{n+1} =
+nc`.
+
+Thus:
 
 ```
-A_1C_1 + (C_1C_2 + C_2C_3 + \ldots + C_n) + C_nA_{n+1} <
-(A_1A_2 + A_2A_3 + \ldots + A_n) + A_{n+1}
+\begin{align*}
+b + (n - 1)p + a &\geq nc \\
+\Rightarrow b - p + a &\geq n(c - p) = nd
+\end{align*}
 ```
 
-Implying that the shortest distance between `A_1` and `A_{n+1}` is not
-a straight line, leading to a contradiction.
+Since LHS is a constant, by taking a sufficiently large `n`, we have a
+contradiction. (Here we applied the Archimedean Property of real
+numbers)

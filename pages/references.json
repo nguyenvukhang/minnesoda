@@ -10,5 +10,13 @@
   "postulate 5": {
     "definition": "/gm/postulates#fifth-postulate",
     "references": []
+  },
+  "triangle inequality": {
+    "definition": "/gm/triangle-inequality",
+    "references": []
+  },
+  "archimedean property": {
+    "definition": "/bd/archimedean-property",
+    "references": []
   }
 }
