@@ -17,7 +17,9 @@ const getComponents = ({ math }) => {
 
   const pre = ({ children }) => {
     return math ? (
-      <MathJax>{`$$${children.props.children}$$`}</MathJax>
+      <div className="overflow-x-auto overflow-y-hidden">
+        <MathJax>{`$$${children.props.children}$$`}</MathJax>
+      </div>
     ) : (
       <p className="text-pink-500">{children.props.children}</p>
     )
