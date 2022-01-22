@@ -25,8 +25,6 @@ function handleMouseUp(setFloatRect) {
       top: rect.y,
       left: rect.x,
       padding: 2,
-      width: rect.width,
-      height: rect.height,
       display: 'block',
       position: 'absolute',
     })
@@ -68,61 +66,8 @@ const getComponents = ({ math }) => {
   const components = { a, pre, inlineCode, p }
 
   const h = {
-    linked: ['h2'],
+    linked: ['h1', 'h2'],
     unlinked: ['h3', 'h4', 'h5', 'h6'],
-  }
-
-  const customH1 = false
-  if (customH1) {
-    const h1 = ({ children }) => {
-      const [isPopoverOpen, setIsPopoverOpen] = useState(false)
-      return (
-        <h1 className="header">
-          <Popover
-            isOpen={isPopoverOpen}
-            reposition={false}
-            onClickOutside={() => setIsPopoverOpen(false)}
-            positions={['top', 'bottom', 'left', 'right']}
-            content={({ position, childRect, popoverRect }) => (
-              <ArrowContainer
-                position={position}
-                childRect={childRect}
-                popoverRect={popoverRect}
-                arrowColor={tw.theme.colors.blue[100]}
-                arrowSize={10}
-                className="popover-arrow-container"
-                arrowClassName="popover-arrow"
-              >
-                <div className="bg-blue-100 p-2">
-                  <span>Referenced:</span>
-                  <div>
-                    {references[children].referenced.map((e) => {
-                      return (
-                        <>
-                          <Link href={e.href}>
-                            <a>{e.title}</a>
-                          </Link>
-                        </>
-                      )
-                    })}
-                  </div>
-                </div>
-              </ArrowContainer>
-            )}
-          >
-            <span
-              onClick={() => setIsPopoverOpen(!isPopoverOpen)}
-              className="cursor-pointer"
-            >
-              {children}
-            </span>
-          </Popover>
-        </h1>
-      )
-    }
-    components.h1 = h1
-  } else {
-    h.linked.push('h1')
   }
 
   h.linked.forEach((Tag) => {

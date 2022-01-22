@@ -21,14 +21,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <MDXProvider components={components}>
       <MathJaxContext>
-        <PermaFloat floatRect={floatRect} setFloatRect={setFloatRect} />
         <div
-          className="my-8 mx-auto max-w-3xl px-12"
+          className="my-8 mx-auto max-w-3xl px-6"
           onMouseUp={() => handleMouseUp(setFloatRect)}
         >
           <Menubar state={[math, setMath]} components={components} />
           <Component {...pageProps} />
         </div>
+        <PermaFloat floatRect={floatRect} setFloatRect={setFloatRect} />
       </MathJaxContext>
     </MDXProvider>
   )
