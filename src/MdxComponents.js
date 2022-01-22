@@ -51,7 +51,13 @@ const getComponents = ({ math }) => {
     )
   }
 
-  const components = { a, img, pre, inlineCode, p }
+  const components = {
+    a,
+    img,
+    inlineCode,
+    p,
+    pre,
+  }
 
   const h = {
     linked: ['h1', 'h2'],
@@ -67,7 +73,9 @@ const getComponents = ({ math }) => {
   })
 
   h.unlinked.forEach((Tag) => {
-    components[Tag] = ({ children }) => <Tag className="header">{children}</Tag>
+    components[Tag] = ({ children }) => (
+      <Tag className="header">{children}</Tag>
+    )
   })
   return components
 }
