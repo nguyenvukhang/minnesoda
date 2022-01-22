@@ -4,7 +4,6 @@ import { MathJaxContext } from 'better-react-mathjax'
 import { useState } from 'react'
 import Menubar from '../src/Menubar'
 import getComponents, { handleMouseUp } from '../src/MdxComponents'
-import ReactTooltip from 'react-tooltip'
 import PermaFloat from '../src/PermaFloat'
 
 function MyApp({ Component, pageProps }) {
@@ -16,15 +15,17 @@ function MyApp({ Component, pageProps }) {
     height: 100,
     display: 'none',
     position: 'absolute',
-    opacity: 0.5
   })
   const components = getComponents({ math })
 
   return (
     <MDXProvider components={components}>
       <MathJaxContext>
-        <PermaFloat floatRect={floatRect} />
-        <div className="my-8 mx-auto max-w-3xl px-12" onMouseUp={() => handleMouseUp(setFloatRect)}>
+        <PermaFloat floatRect={floatRect} setFloatRect={setFloatRect} />
+        <div
+          className="my-8 mx-auto max-w-3xl px-12"
+          onMouseUp={() => handleMouseUp(setFloatRect)}
+        >
           <Menubar state={[math, setMath]} components={components} />
           <Component {...pageProps} />
         </div>

@@ -20,38 +20,21 @@ function handleMouseUp(setFloatRect) {
   if (references.hasOwnProperty(query)) {
     console.log('has reference!')
     const range = selection.getRangeAt(0)
-    var span = document.createElement('span')
-    span.className = 'bg-green-100'
-
-    range.surroundContents(span)
-    selection.removeAllRanges()
-    selection.addRange(range)
-
-    var rect = range.getBoundingClientRect()
-    console.log(rect)
+    const rect = range.getBoundingClientRect()
     setFloatRect({
       top: rect.y,
       left: rect.x,
+      padding: 2,
       width: rect.width,
       height: rect.height,
       display: 'block',
       position: 'absolute',
-      opacity: 0.5,
     })
-
-    // var newreact = React.createElement('div', {
-    //   className: 'bg-red-200',
-    //   children: 'hello there',
-    // })
-    // ReactDOM.render(newreact, document.getElementById('hangover'))
-    // console.log(newreact)
   } else {
     console.log("doesn't have a reference")
   }
   console.log('mouseup', query)
 }
-
-function handleMouseDown() {}
 
 const getComponents = ({ math }) => {
   const a = ({ href, children }) => {
