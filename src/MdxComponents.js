@@ -45,7 +45,7 @@ const getComponents = ({ math }) => {
 
   const img = (props) => {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center my-1-h">
         <img {...props} layout="fill" />
       </div>
     )
