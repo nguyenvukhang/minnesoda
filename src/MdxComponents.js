@@ -11,7 +11,6 @@ import tailwindConfig from '../tailwind.config.js'
 const tw = resolveConfig(tailwindConfig)
 
 function handleMouseUp() {
-
   const selection = window.getSelection()
   const query = selection.toString().toLowerCase().trim()
 
@@ -21,11 +20,20 @@ function handleMouseUp() {
 
   if (references.hasOwnProperty(query)) {
     console.log('has reference!')
+    const range = selection.getRangeAt(0).cloneRange()
+    selection.removeAllRanges()
+    console.log('range', typeof range, range)
+    var span = document.createElement('span')
+    span.className = "bg-green-100";
+    range.surroundContents(span)
+    selection.addRange(range)
   } else {
     console.log("doesn't have a reference")
   }
   console.log('mouseup', query)
 }
+
+function handleMouseDown() {}
 
 const getComponents = ({ math }) => {
   const a = ({ href, children }) => {
