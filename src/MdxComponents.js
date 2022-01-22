@@ -32,7 +32,15 @@ const getComponents = ({ math }) => {
   }
 
   const p = ({ children }) => {
-    return <p>{children}</p>
+    try {
+      if (children.props.mdxType === 'img') {
+        return children
+      } else {
+        return <p>{children}</p>
+      }
+    } catch {
+      return <p>{children}</p>
+    }
   }
 
   const img = (props) => {
