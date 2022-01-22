@@ -39,9 +39,9 @@ const getComponents = ({ math }) => {
   const inlineCode = ({ children }) => {
     return (
       <>
-        <div className={`text-pink-500 ${md.inline}`}>
+        <span className={`text-pink-500 ${md.inline}`}>
           <MathJax inline>{`\\(${children}\\)`}</MathJax>
-        </div>
+        </span>
         <span className={`text-pink-500 ${md.plain}`}>
           {children}
         </span>
