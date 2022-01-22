@@ -9,14 +9,7 @@ import MathjaxConfig from '../src/MathjaxConfig'
 
 function MyApp({ Component, pageProps }) {
   const [math, setMath] = useState(true)
-  const [floatRect, setFloatRect] = useState({
-    top: 0,
-    left: 0,
-    width: 100,
-    height: 100,
-    display: 'none',
-    position: 'absolute',
-  })
+  const [tooltip, setTooltip] = useState(false)
   const components = getComponents({ math })
 
   return (
@@ -24,12 +17,12 @@ function MyApp({ Component, pageProps }) {
       <MathJaxContext config={MathjaxConfig}>
         <div
           className="my-8 mx-auto max-w-3xl px-6"
-          onMouseUp={() => handleMouseUp(setFloatRect)}
+          onMouseUp={handleMouseUp}
         >
           <Menubar state={[math, setMath]} components={components} />
           <Component {...pageProps} />
         </div>
-        <PermaFloat floatRect={floatRect} setFloatRect={setFloatRect} />
+        <PermaFloat state={[tooltip, setTooltip]}/>
       </MathJaxContext>
     </MDXProvider>
   )
