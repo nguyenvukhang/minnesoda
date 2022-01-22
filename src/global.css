@@ -11,7 +11,7 @@
   h4,
   h5,
   h6 {
-    @apply text-gray-900 bg-blue-50 mt-1-h;
+    @apply text-gray-900 bg-blue-50 my-1-h;
   }
   p {
     @apply my-1-h;
@@ -34,16 +34,13 @@
 
 @layer components {
   /* header left-side markers */
+  .header {
+    position: relative;
+  }
   .header::before {
     position: absolute;
     left: -0.6rem;
     color: theme('colors.gray.300');
-  }
-  .header {
-    position: relative;
-  }
-  .header-h1 {
-    position: relative;
   }
   h1::before {
     content: '#';

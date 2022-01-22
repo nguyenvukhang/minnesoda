@@ -25,7 +25,7 @@ const getComponents = ({ math }) => {
     return (
       <>
         <div
-          className={`overflow-x-auto overflow-y-hidden ${md.block}`}
+          className={`overflow-x-auto overflow-y-hidden text-pink-500 ${md.block}`}
         >
           <MathJax>{`$$${children.props.children}$$`}</MathJax>
         </div>
@@ -39,7 +39,7 @@ const getComponents = ({ math }) => {
   const inlineCode = ({ children }) => {
     return (
       <>
-        <div className={`${md.inline}`}>
+        <div className={`text-pink-500 ${md.inline}`}>
           <MathJax inline>{`\\(${children}\\)`}</MathJax>
         </div>
         <span className={`text-pink-500 ${md.plain}`}>
