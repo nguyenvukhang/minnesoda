@@ -15,21 +15,37 @@ const getComponents = ({ math }) => {
     )
   }
 
+  const md = {
+    block: math ? 'block' : 'hidden',
+    inline: math ? 'inline-block' : 'hidden',
+    plain: math ? 'hidden' : 'inline-block',
+  }
+
   const pre = ({ children }) => {
-    return math ? (
-      <div className="overflow-x-auto overflow-y-hidden">
-        <MathJax>{`$$${children.props.children}$$`}</MathJax>
-      </div>
-    ) : (
-      <p className="text-pink-500">{children.props.children}</p>
+    return (
+      <>
+        <div
+          className={`overflow-x-auto overflow-y-hidden ${md.block}`}
+        >
+          <MathJax>{`$$${children.props.children}$$`}</MathJax>
+        </div>
+        <p className={`text-pink-500 ${md.plain}`}>
+          {children.props.children}
+        </p>
+      </>
     )
   }
 
   const inlineCode = ({ children }) => {
-    return math ? (
-      <MathJax inline>{`\\(${children}\\)`}</MathJax>
-    ) : (
-      <span className="text-pink-500">{children}</span>
+    return (
+      <>
+        <div className={`${md.inline}`}>
+          <MathJax inline>{`\\(${children}\\)`}</MathJax>
+        </div>
+        <span className={`text-pink-500 ${md.plain}`}>
+          {children}
+        </span>
+      </>
     )
   }
 
