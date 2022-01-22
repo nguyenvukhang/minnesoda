@@ -1,5 +1,6 @@
 import references from '../pages/references.json'
 import ReactDOM from 'react-dom'
+import Link from 'next/link'
 
 const Tooltip = ({ router, query, removeFloat }) => {
   console.log(references[query])
