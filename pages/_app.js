@@ -8,6 +8,17 @@ import { handleMouseUp, removeFloat } from '../src/PermaFloat'
 import MathjaxConfig from '../src/MathjaxConfig'
 import { useRouter } from 'next/router'
 
+function Footer() {
+  return (
+    <div className="h-48 flex justify-center">
+      <div className="flex flex-col">
+        <div className="flex-1" />
+        <div className="text-gray-400 mb-10">khang</div>
+      </div>
+    </div>
+  )
+}
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [math, setMath] = useState(true)
@@ -17,12 +28,14 @@ function MyApp({ Component, pageProps }) {
     <MDXProvider components={components}>
       <MathJaxContext config={MathjaxConfig}>
         <div
-          className="my-8 mx-auto max-w-3xl px-6"
+          className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col"
           onMouseUp={() => handleMouseUp({ router })}
           onMouseDown={removeFloat}
         >
           <Menubar state={[math, setMath]} components={components} />
           <Component {...pageProps} />
+          <div className="flex-1" />
+          <Footer />
         </div>
       </MathJaxContext>
     </MDXProvider>

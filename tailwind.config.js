@@ -11,7 +11,12 @@ module.exports = {
         '4-ex': '4ex',
       },
       height: {
-        'screen-80': '80vh'
+        'screen-80': '80vh',
+        'screen-90': '90vh',
+      },
+      minHeight: {
+        'screen-80': '80vh',
+        'screen-90': '90vh',
       },
       inset: {
         '_2-ex': '-2ex',
