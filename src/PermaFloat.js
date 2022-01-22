@@ -60,7 +60,7 @@ const PermaFloat = ({ floatRect, setFloatRect }) => {
   checkOutsideClick({ ref: floatRef, floatRect, closeFloat })
   const isOpen = floatRect.display === 'block'
   const query = floatRect.query
-  console.log(references[query]?.references)
+  // console.log(references[query]?.references)
   return isOpen ? (
     <div
       ref={floatRef}
