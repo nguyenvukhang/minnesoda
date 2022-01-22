@@ -3,14 +3,13 @@ import Link from 'next/link'
 import { MathJax } from 'better-react-mathjax'
 import React, { useState } from 'react'
 import references from '../pages/references.json'
-import ReactTooltip from 'react-tooltip'
 
 /* tailwind genius */
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../tailwind.config.js'
 const tw = resolveConfig(tailwindConfig)
 
-function handleMouseUp() {
+function handleMouseUp(setFloatRect) {
   const selection = window.getSelection()
   const query = selection.toString().toLowerCase().trim()
 
@@ -22,18 +21,30 @@ function handleMouseUp() {
     console.log('has reference!')
     const range = selection.getRangeAt(0)
     var span = document.createElement('span')
-    var react = React.createElement("span")
-    var pure = <span>Replacement Stuff</span>
-    var CustomElement = document.registerElement('ReactTooltip')
-    console.log('span', span)
-    console.log('react', react)
-    console.log('pure', pure)
-    span.className = "bg-green-100";
-    range.surroundContents(pure)
+    span.className = 'bg-green-100'
+
+    range.surroundContents(span)
     selection.removeAllRanges()
-    range.getBoundingClientRect
     selection.addRange(range)
-    range.getBoundingClientRect()
+
+    var rect = range.getBoundingClientRect()
+    console.log(rect)
+    setFloatRect({
+      top: rect.y,
+      left: rect.x,
+      width: rect.width,
+      height: rect.height,
+      display: 'block',
+      position: 'absolute',
+      opacity: 0.5,
+    })
+
+    // var newreact = React.createElement('div', {
+    //   className: 'bg-red-200',
+    //   children: 'hello there',
+    // })
+    // ReactDOM.render(newreact, document.getElementById('hangover'))
+    // console.log(newreact)
   } else {
     console.log("doesn't have a reference")
   }

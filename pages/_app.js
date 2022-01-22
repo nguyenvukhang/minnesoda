@@ -5,18 +5,27 @@ import { useState } from 'react'
 import Menubar from '../src/Menubar'
 import getComponents, { handleMouseUp } from '../src/MdxComponents'
 import ReactTooltip from 'react-tooltip'
+import PermaFloat from '../src/PermaFloat'
 
 function MyApp({ Component, pageProps }) {
   const [math, setMath] = useState(true)
+  const [floatRect, setFloatRect] = useState({
+    top: 0,
+    left: 0,
+    width: 100,
+    height: 100,
+    display: 'none',
+    position: 'absolute',
+    opacity: 0.5
+  })
   const components = getComponents({ math })
 
   return (
     <MDXProvider components={components}>
       <MathJaxContext>
-        <div className="my-8 mx-auto max-w-3xl px-12" onMouseUp={handleMouseUp}>
+        <PermaFloat floatRect={floatRect} />
+        <div className="my-8 mx-auto max-w-3xl px-12" onMouseUp={() => handleMouseUp(setFloatRect)}>
           <Menubar state={[math, setMath]} components={components} />
-          <a data-tip="custom show" data-event="click focus"> ◕‿‿◕ </a>
-          <ReactTooltip place="top" type="dark" effect="solid" globalEventOff='click' />
           <Component {...pageProps} />
         </div>
       </MathJaxContext>
