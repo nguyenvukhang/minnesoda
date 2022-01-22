@@ -1,7 +1,7 @@
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import Link from 'next/link'
 import { MathJax } from 'better-react-mathjax'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import references from '../pages/references.json'
 import ReactTooltip from 'react-tooltip'
 
@@ -20,13 +20,20 @@ function handleMouseUp() {
 
   if (references.hasOwnProperty(query)) {
     console.log('has reference!')
-    const range = selection.getRangeAt(0).cloneRange()
-    selection.removeAllRanges()
-    console.log('range', typeof range, range)
+    const range = selection.getRangeAt(0)
     var span = document.createElement('span')
+    var react = React.createElement("span")
+    var pure = <span>Replacement Stuff</span>
+    var CustomElement = document.registerElement('ReactTooltip')
+    console.log('span', span)
+    console.log('react', react)
+    console.log('pure', pure)
     span.className = "bg-green-100";
-    range.surroundContents(span)
+    range.surroundContents(pure)
+    selection.removeAllRanges()
+    range.getBoundingClientRect
     selection.addRange(range)
+    range.getBoundingClientRect()
   } else {
     console.log("doesn't have a reference")
   }
