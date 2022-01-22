@@ -50,14 +50,15 @@ const getComponents = ({ math }) => {
   }
 
   const p = ({ children }) => {
+    const className = "overflow-x-auto overflow-y-hidden"
     try {
       if (children.props.mdxType === 'img') {
         return children
       } else {
-        return <p>{children}</p>
+        return <p className={className}>{children}</p>
       }
     } catch {
-      return <p>{children}</p>
+      return <p className={className}>{children}</p>
     }
   }
 
