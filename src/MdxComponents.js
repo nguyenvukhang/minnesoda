@@ -9,6 +9,34 @@ import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../tailwind.config.js'
 const tw = resolveConfig(tailwindConfig)
 
+function handleMouseUp() {
+
+  var a = document.createElement('span')
+  a.setAttribute('tabindex', '0')
+  a.setAttribute('className', 'text-green-200')
+  a.setAttribute('data-toggle', 'popover')
+  a.setAttribute('data-content', 'Some content inside the popover')
+  a.setAttribute('title', 'popover title')
+
+  const wrap = <div>stuff</div>
+
+  const selection = window.getSelection()
+  const query = selection.toString().toLowerCase().trim()
+  if (query === '') {
+    return
+  }
+  if (references.hasOwnProperty(query)) {
+    console.log('has reference!')
+    const range = selection.getRangeAt(0).cloneRange()
+    range.surroundContents(a)
+    selection.removeAllRanges()
+    selection.addRange(range)
+  } else {
+    console.log("doesn't have a reference")
+  }
+  console.log('mouseup', query)
+}
+
 const getComponents = ({ math }) => {
   const a = ({ href, children }) => {
     return (
@@ -34,14 +62,18 @@ const getComponents = ({ math }) => {
     )
   }
 
-  const components = { a, pre, inlineCode }
+  const p = ({ children }) => {
+    return <p>{children}</p>
+  }
+
+  const components = { a, pre, inlineCode, p }
 
   const h = {
     linked: ['h2'],
     unlinked: ['h3', 'h4', 'h5', 'h6'],
   }
 
-  const customH1 = true
+  const customH1 = false
   if (customH1) {
     const h1 = ({ children }) => {
       const [isPopoverOpen, setIsPopoverOpen] = useState(false)
@@ -89,7 +121,6 @@ const getComponents = ({ math }) => {
         </h1>
       )
     }
-    console.log(components)
     components.h1 = h1
   } else {
     h.linked.push('h1')
@@ -110,3 +141,4 @@ const getComponents = ({ math }) => {
 }
 
 export default getComponents
+export { handleMouseUp }
