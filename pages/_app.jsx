@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
       <Head />
       <MathJaxContext config={MathjaxConfig}>
         <div
-          className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col"
+          className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col overflow-x-hidden"
           onMouseUp={() => handleMouseUp({ router })}
         >
           <Menubar state={[math, setMath]} components={components} />

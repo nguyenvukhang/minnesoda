@@ -29,6 +29,7 @@ const getComponents = ({ math }) => {
     plainMath: 'text-pink-500/90',
   }
 
+  /* math/code blocks */
   const pre = ({ children }) => {
     return (
       <>
@@ -44,6 +45,7 @@ const getComponents = ({ math }) => {
     )
   }
 
+  /* inline math/code */
   const inlineCode = ({ children }) => {
     return (
       <>
@@ -56,15 +58,10 @@ const getComponents = ({ math }) => {
   }
 
   const p = ({ children }) => {
-    const className = 'overflow-x-auto overflow-y-hidden'
-    try {
-      if (children.props.mdxType === 'img') {
-        return children
-      } else {
-        return <p className={className}>{children}</p>
-      }
-    } catch {
-      return <p className={className}>{children}</p>
+    if (children.props?.mdxType === 'img') {
+      return children
+    } else {
+      return <p>{children}</p>
     }
   }
 
