@@ -1,10 +1,10 @@
 import { MDXProvider } from '@mdx-js/react'
 import '../src/global.css'
 import { MathJaxContext } from 'better-react-mathjax'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Menubar from '../src/Menubar'
 import getComponents from '../src/MdxComponents'
-import { handleMouseUp, removeTooltip } from '../src/Tooltip'
+import { handleMouseUp } from '../src/Tooltip'
 import MathjaxConfig from '../src/MathjaxConfig'
 import { useRouter } from 'next/router'
 import Footer from '../src/Footer'
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <MDXProvider components={components}>
-      <Head/>
+      <Head />
       <MathJaxContext config={MathjaxConfig}>
         <div
           className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col"
