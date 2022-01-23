@@ -5,6 +5,14 @@ module.exports = {
       jetbrains: ['"JetBrains Mono"'],
     },
     extend: {
+      colors: {
+        // sky: {500: #0ea5e9, 600: #0284c7}
+        // https://meyerweb.com/eric/tools/color-blend
+        accent: '#0895D8',
+        sky: {
+          550: '#0895D8',
+        },
+      },
       letterSpacing: {
         custom: '-0.01em',
       },

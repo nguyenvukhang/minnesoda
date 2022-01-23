@@ -18,18 +18,26 @@ const getComponents = ({ math }) => {
   const md = {
     block: math ? 'block' : 'hidden',
     inline: math ? 'inline-block' : 'hidden',
-    plain: math ? 'hidden' : 'inline-block',
+    plainMath: math ? 'hidden' : 'inline-block',
+  }
+
+  const color = {
+    mathjax: {
+      inline: 'text-pink-500/90',
+      block: '',
+    },
+    plainMath: 'text-pink-500/90',
   }
 
   const pre = ({ children }) => {
     return (
       <>
         <div
-          className={`overflow-x-auto overflow-y-hidden text-pink-500 ${md.block}`}
+          className={`overflow-x-auto overflow-y-hidden ${color.mathjax.block} ${md.block}`}
         >
           <MathJax>{`$$${children.props.children}$$`}</MathJax>
         </div>
-        <p className={`text-pink-500 ${md.plain}`}>
+        <p className={`${color.plainMath} ${md.plainMath}`}>
           {children.props.children}
         </p>
       </>
@@ -39,18 +47,16 @@ const getComponents = ({ math }) => {
   const inlineCode = ({ children }) => {
     return (
       <>
-        <span className={`text-pink-500 ${md.inline}`}>
+        <span className={`${color.mathjax.inline} ${md.inline}`}>
           <MathJax inline>{`\\(${children}\\)`}</MathJax>
         </span>
-        <span className={`text-pink-500 ${md.plain}`}>
-          {children}
-        </span>
+        <span className={`${color.plainMath} ${md.plainMath}`}>{children}</span>
       </>
     )
   }
 
   const p = ({ children }) => {
-    const className = "overflow-x-auto overflow-y-hidden"
+    const className = 'overflow-x-auto overflow-y-hidden'
     try {
       if (children.props.mdxType === 'img') {
         return children
@@ -71,9 +77,7 @@ const getComponents = ({ math }) => {
   }
 
   const em = ({ children }) => {
-    return (
-      <span id={children.replace(/ /g, '-')}>{children}</span>
-    )
+    return <span id={children.replace(/ /g, '-')}>{children}</span>
   }
 
   const h1 = ({ children }) => {
@@ -108,9 +112,7 @@ const getComponents = ({ math }) => {
   })
 
   h.unlinked.forEach((Tag) => {
-    components[Tag] = ({ children }) => (
-      <Tag className="header">{children}</Tag>
-    )
+    components[Tag] = ({ children }) => <Tag className="header">{children}</Tag>
   })
   return components
 }

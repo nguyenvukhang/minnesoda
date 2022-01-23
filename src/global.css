@@ -6,7 +6,10 @@
 
 @layer base {
   html {
-    @apply bg-white text-gray-900 font-jetbrains font-light tracking-custom;
+    @apply bg-white text-gray-900
+    font-jetbrains font-light
+    leading-6
+    tracking-custom;
   }
   h1,
   h2,
@@ -18,7 +21,7 @@
     underline decoration-gray-300 underline-offset-5;
   }
   p {
-    @apply my-1/2-h;
+    @apply mb-1-h;
   }
   ul {
     @apply list-outside list-none ml-2-ex mb-1-h relative;
@@ -27,9 +30,9 @@
     @apply list-outside list-none ml-4-ex mb-1-h relative;
   }
   a {
-    @apply text-blue-500 cursor-pointer
+    @apply text-accent cursor-pointer
     hover:underline
-    hover:bg-blue-500/10;
+    hover:bg-accent/10;
   }
   hr {
     @apply border-gray-200 border-t my-1-h;

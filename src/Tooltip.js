@@ -1,5 +1,9 @@
 import references from '../pages/references.json'
 import ReactDOM from 'react-dom'
+/* tailwind genius */
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../tailwind.config.js'
+const tw = resolveConfig(tailwindConfig)
 
 const Tooltip = ({ router, query, removeTooltip, position }) => {
   const href = references[query].definition
@@ -11,7 +15,7 @@ const Tooltip = ({ router, query, removeTooltip, position }) => {
   }
 
   const boxShift = {
-    boxShadow: '3px 3px 0px #777777',
+    boxShadow: `3px 3px 0px ${tw.theme.colors.gray[500]}`,
     // border: '2px solid #888888',
     transform:
       position === 'above'
@@ -24,7 +28,7 @@ const Tooltip = ({ router, query, removeTooltip, position }) => {
   return (
     <div>
       <div
-        className="absolute flex flex-col bg-blue-100 px-3 py-2 w-56"
+        className="absolute flex flex-col bg-sky-100 px-3 py-2 w-56"
         style={boxShift}
       >
         <a onClick={handleClick}>Go to definition</a>

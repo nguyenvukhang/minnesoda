@@ -7,17 +7,7 @@ import getComponents from '../src/MdxComponents'
 import { handleMouseUp, removeTooltip } from '../src/Tooltip'
 import MathjaxConfig from '../src/MathjaxConfig'
 import { useRouter } from 'next/router'
-
-function Footer() {
-  return (
-    <div className="h-48 flex justify-center">
-      <div className="flex flex-col">
-        <div className="flex-1" />
-        <div className="text-gray-300 mb-10">@khang</div>
-      </div>
-    </div>
-  )
-}
+import Footer from '../src/Footer'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
