@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200;0,300;0,400;0,600;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply bg-white text-gray-900 font-jetbrains font-light tracking-custom;
+  }
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply text-gray-900 bg-blue-50 my-1-h;
+    @apply my-1-h
+    underline decoration-gray-300 underline-offset-5;
   }
   p {
-    @apply my-1-h;
+    @apply my-1/2-h;
   }
   ul {
     @apply list-outside list-none ml-2-ex mb-1-h relative;
@@ -25,10 +29,10 @@
   a {
     @apply text-blue-500 cursor-pointer
     hover:underline
-    hover:bg-blue-50;
+    hover:bg-blue-500/10;
   }
   hr {
-    @apply text-red-500 border-t my-1-h;
+    @apply border-gray-200 border-t my-1-h;
   }
 }
 
@@ -40,7 +44,8 @@
   .header::before {
     position: absolute;
     left: -0.6rem;
-    color: theme('colors.gray.300');
+    color: theme('colors.gray.200');
+    opacity: 0;
   }
   h1::before {
     content: '#';

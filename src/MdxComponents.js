@@ -76,17 +76,26 @@ const getComponents = ({ math }) => {
     )
   }
 
+  const h1 = ({ children }) => {
+    return (
+      <h1 id={children.replace(/ /g, '-')} className="header">
+        {children.toUpperCase()}
+      </h1>
+    )
+  }
+
   const components = {
     a,
     em,
     img,
     inlineCode,
+    h1,
     p,
     pre,
   }
 
   const h = {
-    linked: ['h1', 'h2'],
+    linked: ['h2'],
     unlinked: ['h3', 'h4', 'h5', 'h6'],
   }
 
