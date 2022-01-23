@@ -4,7 +4,7 @@ import { MathJaxContext } from 'better-react-mathjax'
 import { useEffect, useState } from 'react'
 import Menubar from '../src/Menubar'
 import getComponents from '../src/MdxComponents'
-import { handleMouseUp, removeTooltip } from '../src/PermaFloat'
+import { handleMouseUp, removeTooltip } from '../src/Tooltip'
 import MathjaxConfig from '../src/MathjaxConfig'
 import { useRouter } from 'next/router'
 
