@@ -30,7 +30,6 @@ function MyApp({ Component, pageProps }) {
         <div
           className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col"
           onMouseUp={() => handleMouseUp({ router })}
-          onMouseDown={removeTooltip}
         >
           <Menubar state={[math, setMath]} components={components} />
           <Component {...pageProps} />

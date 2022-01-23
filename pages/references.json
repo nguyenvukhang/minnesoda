@@ -8,15 +8,12 @@
     ]
   },
   "postulate 5": {
-    "definition": "/gm/postulates#fifth-postulate",
-    "references": []
+    "definition": "/gm/postulates#fifth-postulate"
   },
   "triangle inequality": {
-    "definition": "/gm/triangle-inequality",
-    "references": []
+    "definition": "/gm/triangle-inequality"
   },
   "archimedean property": {
-    "definition": "/bd/archimedean-property",
-    "references": []
+    "definition": "/bd/archimedean-property"
   }
 }
