@@ -8,12 +8,12 @@ const MathjaxConfig = {
       '[+]': ['gensymb']
     },
     macros: {
-      d: '\\mathrm{d}',
+      d: '\\mathrm{d}', // differentiation
+      v: [ '\\textbf{#1}', 1], // vector
       R: '\\mathbb{R}',
       Q: '\\mathbb{Q}',
       Z: '\\mathbb{Z}',
       C: '\\mathbb{C}',
-      v: '\\bm',
       implies: '\\Rightarrow',
       rref: '\\text{rref}',
       colspace: '\\text{column space}',
