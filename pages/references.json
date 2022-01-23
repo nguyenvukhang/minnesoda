@@ -4,10 +4,7 @@
   },
   "navigation": {
     "postulate 5": {
-      "definition": "/gm/postulates#fifth-postulate",
-      "references": [
-        ["this cool place", "/gm/triangle-inequality"]
-      ]
+      "definition": "/gm/postulates#fifth-postulate"
     },
     "triangle inequality": {
       "definition": "/gm/triangle-inequality"

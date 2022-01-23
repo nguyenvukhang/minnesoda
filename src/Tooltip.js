@@ -28,8 +28,7 @@ const Tooltip = ({
         : `translate(-50%, ${spacing}px)`,
   }
 
-  console.log('references', references)
-  const hasReferences = !(references === [])
+  const hasReferences = Array.isArray(references) && references.length >= 1
 
   return (
     <div>
@@ -115,7 +114,7 @@ function handleMouseUp({ router }) {
     Tooltip({
       router,
       definition: hit.definition,
-      references: hit.references || [],
+      references: hit.references,
       removeTooltip,
       position,
     }),
