@@ -8,6 +8,7 @@ import { handleMouseUp, removeTooltip } from '../src/Tooltip'
 import MathjaxConfig from '../src/MathjaxConfig'
 import { useRouter } from 'next/router'
 import Footer from '../src/Footer'
+import Head from '../src/Head'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <MDXProvider components={components}>
+      <Head/>
       <MathJaxContext config={MathjaxConfig}>
         <div
           className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col"
