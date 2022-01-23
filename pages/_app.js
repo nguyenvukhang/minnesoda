@@ -4,7 +4,7 @@ import { MathJaxContext } from 'better-react-mathjax'
 import { useEffect, useState } from 'react'
 import Menubar from '../src/Menubar'
 import getComponents from '../src/MdxComponents'
-import { handleMouseUp, removeFloat } from '../src/PermaFloat'
+import { handleMouseUp, removeTooltip } from '../src/PermaFloat'
 import MathjaxConfig from '../src/MathjaxConfig'
 import { useRouter } from 'next/router'
 
@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
         <div
           className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col"
           onMouseUp={() => handleMouseUp({ router })}
-          onMouseDown={removeFloat}
+          onMouseDown={removeTooltip}
         >
           <Menubar state={[math, setMath]} components={components} />
           <Component {...pageProps} />

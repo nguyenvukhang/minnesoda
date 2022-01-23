@@ -2,15 +2,19 @@ import references from '../pages/references.json'
 import ReactDOM from 'react-dom'
 import Link from 'next/link'
 
-const Tooltip = ({ router, query, removeFloat }) => {
-  console.log(references[query])
+const Tooltip = ({ router, query, removeTooltip, transform }) => {
+  // console.log(references[query])
+  console.log("transform", transform)
   const href = references[query].definition
   function handleClick() {
-    removeFloat()
+    removeTooltip()
     router.push(href)
   }
+  const style = transform === 'up' ? {
+    transform: "translateY(-100%)"
+  } : null
   return (
-    <div className="absolute flex flex-col bg-blue-100 px-3 py-2">
+    <div className="absolute flex flex-col bg-blue-100 px-3 py-2" style={style}>
       <a onClick={handleClick}>Go to definition</a>
       <div className="mt-1-h">Go to reference</div>
       <div className="flex flex-col">
@@ -22,7 +26,7 @@ const Tooltip = ({ router, query, removeFloat }) => {
   )
 }
 
-function removeFloat() {
+function removeTooltip() {
   const exisitngFloat = document.getElementById('reference-tooltip')
   if (exisitngFloat) {
     exisitngFloat.remove()
@@ -30,7 +34,7 @@ function removeFloat() {
 }
 
 function handleMouseUp({ router }) {
-  removeFloat()
+  removeTooltip()
   const selection = window.getSelection()
   const query = selection.toString().toLowerCase().trim()
 
@@ -43,21 +47,21 @@ function handleMouseUp({ router }) {
     const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
     const i = document.createElement('div')
-    const debug = false
-    if (debug) {
-      i.style.border = '2px solid black'
-      i.style.height = rect.height + 'px'
-      i.style.width = rect.width + 'px'
-    }
     i.style.position = 'absolute' // fixed positioning = easy mode
-    i.style.top = rect.top + window.scrollY + 'px' // set coordinates
     i.style.left = rect.left + window.scrollX + 'px'
     i.id = 'reference-tooltip'
-    document.body.appendChild(i)
-    if (!debug) {
-      ReactDOM.render(Tooltip({ router, query, removeFloat }), i)
+    var transform
+    // check if element is more than halfway down the screen
+    if (rect.top > window.innerHeight / 2) {
+      i.style.top =  window.scrollY +rect.top + 'px' // set coordinates
+      transform = 'up'
+    } else {
+      i.style.top =  window.scrollY +rect.top + rect.height + 'px' // set coordinates
+      transform = 'normal'
     }
+    document.body.appendChild(i)
+    ReactDOM.render(Tooltip({ router, query, removeTooltip, transform }), i)
   }
 }
 
-export { handleMouseUp, removeFloat }
+export { handleMouseUp, removeTooltip }
