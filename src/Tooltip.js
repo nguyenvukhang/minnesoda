@@ -1,30 +1,46 @@
 import references from '../pages/references.json'
 import ReactDOM from 'react-dom'
-import Link from 'next/link'
 
 const Tooltip = ({ router, query, removeTooltip, position }) => {
   const href = references[query].definition
-  const arrowSize = 8
+  const arrowSize = 10
+  const spacing = 5
+
   function handleClick() {
     removeTooltip()
     router.push(href)
   }
-  const style =
-    position === 'above'
-      ? {
-          transform: 'translateY(calc(-100% - 8px))',
-        }
-      : null
-  const Arrow = () => {
-    const down =
-      'w-0 h-0 border-x-8 border-t-8 border-x-transparent border-t-blue-100'
-    const rotate = position === 'above' ? 'translate-y-[-8px]' : 'rotate-180'
-    return <div className={`${down} ${rotate}`} />
+
+  const boxShift = {
+    boxShadow: '2px 2px 2px #AAAAAA',
+    transform:
+      position === 'above'
+        ? `translateY(calc(-100% - ${arrowSize}px - ${spacing}px))`
+        : `translateY(${spacing}px)`,
   }
+
+  const Arrow = () => {
+    const down = 'border-x-transparent border-y-blue-200'
+    const rotate = {
+      transform:
+        position === 'above'
+          ? `translateY(-${arrowSize + spacing}px)`
+          : `translateY(${spacing}px)`,
+      borderWidth:
+        position === 'above'
+          ? `${arrowSize}px ${arrowSize}px 0px ${arrowSize}px`
+          : `0px ${arrowSize}px ${arrowSize}px ${arrowSize}px`,
+    }
+    return <div className={down} style={rotate} />
+  }
+
   return (
     <div>
       {position === 'below' ? <Arrow /> : null}
-      <div className="absolute flex flex-col bg-blue-100 px-3 py-2" style={style}>
+      <div
+        className="absolute flex flex-col bg-blue-200 px-3 py-2"
+        style={boxShift}
+      >
         <a onClick={handleClick}>Go to definition</a>
         <div className="mt-1-h">Go to reference</div>
         <div className="flex flex-col">
