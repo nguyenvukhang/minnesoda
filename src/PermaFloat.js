@@ -15,7 +15,7 @@ const Tooltip = ({ router, query, removeFloat }) => {
       <div className="mt-1-h">Go to reference</div>
       <div className="flex flex-col">
         {references[query].references.map((e) => (
-            <a onClick={handleClick}>{e[0]}</a>
+          <a onClick={handleClick}>{e[0]}</a>
         ))}
       </div>
     </div>
@@ -43,12 +43,20 @@ function handleMouseUp({ router }) {
     const range = selection.getRangeAt(0)
     const rect = range.getBoundingClientRect()
     const i = document.createElement('div')
+    const debug = false
+    if (debug) {
+      i.style.border = '2px solid black'
+      i.style.height = rect.height + 'px'
+      i.style.width = rect.width + 'px'
+    }
     i.style.position = 'absolute' // fixed positioning = easy mode
-    i.style.top = rect.top + 'px' // set coordinates
-    i.style.left = rect.left + 'px'
+    i.style.top = rect.top + window.scrollY + 'px' // set coordinates
+    i.style.left = rect.left + window.scrollX + 'px'
     i.id = 'reference-tooltip'
     document.body.appendChild(i)
-    ReactDOM.render(Tooltip({ router, query, removeFloat }), i)
+    if (!debug) {
+      ReactDOM.render(Tooltip({ router, query, removeFloat }), i)
+    }
   }
 }
 
