@@ -1,19 +1,19 @@
 {
-  "linear algebra": {
-    "definition": "/la/linear-systems",
-    "references": [
-      ["Linear Systems", "/la/linear-systems"],
-      ["Another Reference", "/la/linear-systems"],
-      ["Third Reference", "/la/linear-systems"]
-    ]
+  "aliases": {
+    "fifth postulate": "postulate 5"
   },
-  "postulate 5": {
-    "definition": "/gm/postulates#fifth-postulate"
-  },
-  "triangle inequality": {
-    "definition": "/gm/triangle-inequality"
-  },
-  "archimedean property": {
-    "definition": "/bd/archimedean-property"
+  "navigation": {
+    "postulate 5": {
+      "definition": "/gm/postulates#fifth-postulate",
+      "references": [
+        ["this cool place", "/gm/triangle-inequality"]
+      ]
+    },
+    "triangle inequality": {
+      "definition": "/gm/triangle-inequality"
+    },
+    "archimedean property": {
+      "definition": "/bd/archimedean-property"
+    }
   }
 }

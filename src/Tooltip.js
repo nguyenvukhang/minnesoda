@@ -1,15 +1,20 @@
-import references from '../pages/references.json'
+import refData from '../pages/references.json'
 import ReactDOM from 'react-dom'
 /* tailwind genius */
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../tailwind.config.js'
 const tw = resolveConfig(tailwindConfig)
 
-const Tooltip = ({ router, query, removeTooltip, position }) => {
-  const href = references[query].definition
+const Tooltip = ({
+  router,
+  definition,
+  references,
+  removeTooltip,
+  position,
+}) => {
   const spacing = 8
 
-  function handleClick() {
+  function handleClick(href) {
     removeTooltip()
     router.push(href)
   }
@@ -23,7 +28,8 @@ const Tooltip = ({ router, query, removeTooltip, position }) => {
         : `translate(-50%, ${spacing}px)`,
   }
 
-  const hasReferences = references[query].hasOwnProperty('references')
+  console.log('references', references)
+  const hasReferences = !(references === [])
 
   return (
     <div>
@@ -31,13 +37,13 @@ const Tooltip = ({ router, query, removeTooltip, position }) => {
         className="absolute flex flex-col bg-sky-100 px-3 py-2 w-56"
         style={boxShift}
       >
-        <a onClick={handleClick}>Go to definition</a>
+        <a onClick={() => handleClick(definition)}>Go to definition</a>
         {hasReferences ? (
           <>
             <div className="mt-1-h">Go to reference</div>
             <div className="flex flex-col">
-              {references[query].references.map((e) => (
-                <a onClick={handleClick}>{e[0]}</a>
+              {references.map((e) => (
+                <a onClick={() => handleClick(e[1])}>{e[0]}</a>
               ))}
             </div>
           </>
@@ -73,28 +79,48 @@ function handleMouseUp({ router }) {
     return
   }
 
-  if (references.hasOwnProperty(query)) {
-    const range = selection.getRangeAt(0)
-    const rect = range.getBoundingClientRect()
-    const i = document.createElement('div')
-    i.style.position = 'absolute'
-    i.style.left = rect.left + rect.width / 2 + window.scrollX + 'px'
-    i.id = 'reference-tooltip'
-    var position
-    // check if element is more than halfway down the screen
-    if (rect.top > window.innerHeight / 2) {
-      i.style.top = window.scrollY + rect.top + 'px'
-      position = 'above'
-    } else {
-      i.style.top = window.scrollY + rect.top + rect.height + 'px' // set coordinates
-      position = 'below'
-    }
-    removeTooltip()
-    document.body.appendChild(i)
-    ReactDOM.render(Tooltip({ router, query, removeTooltip, position }), i)
+  /*
+   * looks up the database for the query
+   */
+  var hit
+  if (refData.aliases.hasOwnProperty(query)) {
+    const alias = refData.aliases[query]
+    hit = refData.navigation[alias]
+  } else if (refData.navigation.hasOwnProperty(query)) {
+    hit = refData.navigation[query]
   } else {
     removeTooltip()
+    return
   }
+
+  const range = selection.getRangeAt(0)
+  const rect = range.getBoundingClientRect()
+  const i = document.createElement('div')
+  i.style.position = 'absolute'
+  i.style.left = rect.left + rect.width / 2 + window.scrollX + 'px'
+  i.id = 'reference-tooltip'
+  var position
+  // check if element is more than halfway down the screen
+  if (rect.top > window.innerHeight / 2) {
+    i.style.top = window.scrollY + rect.top + 'px'
+    position = 'above'
+  } else {
+    i.style.top = window.scrollY + rect.top + rect.height + 'px' // set coordinates
+    position = 'below'
+  }
+
+  removeTooltip()
+  document.body.appendChild(i)
+  ReactDOM.render(
+    Tooltip({
+      router,
+      definition: hit.definition,
+      references: hit.references || [],
+      removeTooltip,
+      position,
+    }),
+    i
+  )
 }
 
 export { handleMouseUp, removeTooltip }
