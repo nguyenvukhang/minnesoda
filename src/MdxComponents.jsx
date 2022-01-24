@@ -73,6 +73,7 @@ const getComponents = ({ math }) => {
     )
   }
 
+  /* italics as tagged elements */
   const em = ({ children }) => {
     return <span id={children.replace(/ /g, '-')}>{children}</span>
   }
