@@ -1,6 +1,9 @@
 {
   "aliases": {
-    "fifth postulate": "postulate 5"
+    "fifth postulate": "postulate 5",
+    "haa": "saccheri",
+    "haa": "saccheri",
+    "haa": "saccheri"
   },
   "navigation": {
     "postulate 5": {
@@ -11,6 +14,9 @@
     },
     "archimedean property": {
       "definition": "/bd/archimedean-property"
+    },
+    "saccheri": {
+      "definition": "/gm/gerolamo-saccheri"
     }
   }
 }
