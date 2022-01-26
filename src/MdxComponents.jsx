@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { MathJax } from 'better-react-mathjax'
 
 /* tailwind genius */
-// import resolveConfig from 'tailwindcss/resolveConfig'
-// import tailwindConfig from '../tailwind.config.js'
-// const tw = resolveConfig(tailwindConfig)
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../tailwind.config.js'
+const tw = resolveConfig(tailwindConfig)
 
 const getComponents = ({ math }) => {
   const a = ({ href, children }) => {
@@ -24,23 +24,31 @@ const getComponents = ({ math }) => {
   const color = {
     mathjax: {
       inline: 'text-pink-500/90',
-      block: '',
+      block: 'text-pink-500/90 mb-1-h bg-gray-50/50 border',
     },
     plainMath: 'text-pink-500/90',
   }
 
   /* math/code blocks */
   const pre = ({ children }) => {
+    const increasedSpacing = children.props.children.replace(
+      /\\\\\n/g,
+      '\\\\[0.4em]\n'
+    )
     return (
       <>
         <div
           className={`overflow-x-auto overflow-y-hidden ${color.mathjax.block} ${md.block}`}
         >
-          <MathJax>{`$$${children.props.children}$$`}</MathJax>
+          <MathJax>{`$$${increasedSpacing}$$`}</MathJax>
         </div>
-        <p className={`${color.plainMath} ${md.plainMath}`}>
-          {children.props.children}
-        </p>
+        <div
+          className={`${color.plainMath} ${md.plainMath} mb-1-h border`}
+        >
+          <pre className="font-jetbrains bg-gray-50 p-4">
+            {children.props.children}
+          </pre>
+        </div>
       </>
     )
   }
@@ -52,7 +60,9 @@ const getComponents = ({ math }) => {
         <span className={`${color.mathjax.inline} ${md.inline}`}>
           <MathJax inline>{`\\(${children}\\)`}</MathJax>
         </span>
-        <span className={`${color.plainMath} ${md.plainMath}`}>{children}</span>
+        <span className={`${color.plainMath} ${md.plainMath}`}>
+          {children}
+        </span>
       </>
     )
   }
@@ -89,7 +99,7 @@ const getComponents = ({ math }) => {
   const table = ({ children }) => {
     return (
       <div className="overflow-x-auto sm:overflow-x-visible">
-        <table className='w-full table-fixed'>{children}</table>
+        <table className="w-full table-fixed">{children}</table>
       </div>
     )
   }
@@ -119,7 +129,9 @@ const getComponents = ({ math }) => {
   })
 
   h.unlinked.forEach((Tag) => {
-    components[Tag] = ({ children }) => <Tag className="header">{children}</Tag>
+    components[Tag] = ({ children }) => (
+      <Tag className="header">{children}</Tag>
+    )
   })
 
   return components
