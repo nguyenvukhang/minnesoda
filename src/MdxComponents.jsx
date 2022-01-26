@@ -122,11 +122,11 @@ const getComponents = ({ math }) => {
     components[Tag] = ({ children }) => <Tag className="header">{children}</Tag>
   })
 
-  const tableElements = ['thead', 'tbody', 'th', 'tr', 'td']
-
-  tableElements.forEach((Tag) => {
-    components[Tag] = ({ children }) => <Tag className="border">{children}</Tag>
-  })
+//   const tableElements = ['thead', 'tbody', 'th', 'tr', 'td']
+// 
+//   tableElements.forEach((Tag) => {
+//     components[Tag] = ({ children }) => <Tag className="border p-1">{children}</Tag>
+//   })
 
   return components
 }

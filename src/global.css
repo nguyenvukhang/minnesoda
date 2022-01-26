@@ -37,6 +37,16 @@
   hr {
     @apply border-gray-200 border-t my-1-h;
   }
+  thead,
+  tbody,
+  th,
+  tr,
+  td {
+    @apply border p-1;
+  }
+  th {
+    @apply font-light bg-gray-50;
+  }
 }
 
 @layer components {
