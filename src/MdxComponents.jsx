@@ -89,7 +89,7 @@ const getComponents = ({ math }) => {
   const table = ({ children }) => {
     return (
       <div className="overflow-x-auto sm:overflow-x-visible">
-        <table>{children}</table>
+        <table className='w-full table-fixed'>{children}</table>
       </div>
     )
   }
@@ -121,12 +121,6 @@ const getComponents = ({ math }) => {
   h.unlinked.forEach((Tag) => {
     components[Tag] = ({ children }) => <Tag className="header">{children}</Tag>
   })
-
-//   const tableElements = ['thead', 'tbody', 'th', 'tr', 'td']
-// 
-//   tableElements.forEach((Tag) => {
-//     components[Tag] = ({ children }) => <Tag className="border p-1">{children}</Tag>
-//   })
 
   return components
 }
