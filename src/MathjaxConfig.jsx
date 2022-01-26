@@ -2,15 +2,19 @@
  * https://docs.mathjax.org/en/latest/options/index.html
  */
 const MathjaxConfig = {
-  loader: {load: ['[tex]/gensymb']},
+  loader: { load: ['[tex]/gensymb'] },
   tex: {
     packages: {
-      '[+]': ['gensymb']
+      '[+]': ['gensymb'],
     },
     macros: {
       d: '\\mathrm{d}', // differentiation
-      v: [ '\\textbf{#1}', 1], // vector
-      units: [ '\\;\\mathrm{#1}', 1], // units (physics)
+      v: ['\\textbf{#1}', 1], // vector
+      units: ['\\;\\mathrm{#1}', 1], // units (physics)
+      inti: ['\\int{#1}\\;\\mathrm{d}{#2}', 2], // integral (indefinite)
+      intd: ['\\int_{#1}^{#2}{#3}\\;\\mathrm{d}{#4}', 4], // integral (definite)
+      ointi: ['\\oint{#1}\\;\\mathrm{d}{#2}', 2], // closed integral (indefinite)
+      ointd: ['\\oint_{#1}^{#2}{#3}\\;\\mathrm{d}{#4}', 4], // closed integral (definite)
       R: '\\mathbb{R}',
       Q: '\\mathbb{Q}',
       Z: '\\mathbb{Z}',
@@ -26,12 +30,12 @@ const MathjaxConfig = {
       df: '\\dfrac',
       GE: '\\xrightarrow{\\text{GE}}',
       GJE: '\\xrightarrow{\\text{GJE}}',
-    }
-  }
+    },
+  },
 }
 
 export default MathjaxConfig
-// 
+//
 // Mathematical Alphanumeric Symbols[1][2]
 // Official Unicode Consortium code chart (PDF)
 //  	0	1	2	3	4	5	6	7	8	9	A	B	C	D	E	F
@@ -54,7 +58,7 @@ export default MathjaxConfig
 // U+1D50x	𝔀	𝔁	𝔂	𝔃	𝔄	𝔅		𝔇	𝔈	𝔉	𝔊			𝔍	𝔎	𝔏
 // U+1D51x	𝔐	𝔑	𝔒	𝔓	𝔔		𝔖	𝔗	𝔘	𝔙	𝔚	𝔛	𝔜		𝔞	𝔟
 // U+1D52x	𝔠	𝔡	𝔢	𝔣	𝔤	𝔥	𝔦	𝔧	𝔨	𝔩	𝔪	𝔫	𝔬	𝔭	𝔮	𝔯
-// U+1D53x	𝔰	𝔱	𝔲	𝔳	𝔴	𝔵	𝔶	𝔷	𝔸	𝔹		𝔻	𝔼	𝔽	𝔾	
+// U+1D53x	𝔰	𝔱	𝔲	𝔳	𝔴	𝔵	𝔶	𝔷	𝔸	𝔹		𝔻	𝔼	𝔽	𝔾
 // U+1D54x	𝕀	𝕁	𝕂	𝕃	𝕄		𝕆				𝕊	𝕋	𝕌	𝕍	𝕎	𝕏
 // U+1D55x	𝕐		𝕒	𝕓	𝕔	𝕕	𝕖	𝕗	𝕘	𝕙	𝕚	𝕛	𝕜	𝕝	𝕞	𝕟
 // U+1D56x	𝕠	𝕡	𝕢	𝕣	𝕤	𝕥	𝕦	𝕧	𝕨	𝕩	𝕪	𝕫	𝕬	𝕭	𝕮	𝕯

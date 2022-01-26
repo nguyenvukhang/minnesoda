@@ -3,7 +3,8 @@
     "fifth postulate": "postulate 5",
     "haa": "saccheri",
     "haa": "saccheri",
-    "haa": "saccheri"
+    "haa": "saccheri",
+    "force on charge": "coulomb's law"
   },
   "navigation": {
     "postulate 5": {
@@ -17,6 +18,9 @@
     },
     "saccheri": {
       "definition": "/gm/gerolamo-saccheri"
+    },
+    "coulomb's law": {
+      "definition": "/physics/ec/electric-force-between-charges"
     }
   }
 }

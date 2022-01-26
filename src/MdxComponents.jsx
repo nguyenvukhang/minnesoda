@@ -77,7 +77,7 @@ const getComponents = ({ math }) => {
 
   const img = ({ src, alt }) => {
     return (
-      <div className="flex justify-center my-1-h max-h-48">
+      <div className="flex justify-center mb-1-h max-h-48">
         <img src={src} alt={alt} className="object-contain" />
       </div>
     )
