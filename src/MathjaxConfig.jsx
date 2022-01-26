@@ -10,6 +10,7 @@ const MathjaxConfig = {
     macros: {
       d: '\\mathrm{d}', // differentiation
       v: [ '\\textbf{#1}', 1], // vector
+      units: [ '\\;\\mathrm{#1}', 1], // units (physics)
       R: '\\mathbb{R}',
       Q: '\\mathbb{Q}',
       Z: '\\mathbb{Z}',

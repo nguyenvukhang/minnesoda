@@ -98,7 +98,7 @@ const getComponents = ({ math }) => {
 
   const table = ({ children }) => {
     return (
-      <div className="overflow-x-auto sm:overflow-x-visible">
+      <div className="overflow-x-auto sm:overflow-x-visible mb-1.5-h">
         <table className="w-full table-fixed">{children}</table>
       </div>
     )

@@ -20,6 +20,8 @@ module.exports = {
         5: '5px',
       },
       spacing: {
+        '2-h': '2rem',
+        '1.5-h': '1.5rem',
         '1-h': '1rem',
         '1/2-h': '0.5rem',
         '2-ex': '2ex',
