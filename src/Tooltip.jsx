@@ -70,8 +70,33 @@ function removeTooltip() {
  * use removeTooltip() to remove exisitng tooltip(s)
  */
 function handleMouseUp({ router }) {
+
+  /*
+   * clean up selection to make it more accepting
+   * removes the following characters  , . { } [ ] ( ) "
+   * (apostrophe is kept inside for named laws)
+   */
+  function cleanUp(str) {
+    const removeList = [
+      ',',
+      '"',
+      '\\.',
+      '\\(',
+      '\\)',
+      '\\[',
+      '\\]',
+      '\\{',
+      '\\}',
+    ]
+    removeList.forEach((e) => {
+      const re = new RegExp(e, 'g')
+      str = str.replace(re, '')
+    })
+    return str.trim().toLowerCase()
+  }
+
   const selection = window.getSelection()
-  const query = selection.toString().toLowerCase().trim()
+  const query = cleanUp(selection.toString())
 
   if (query === '') {
     removeTooltip()
