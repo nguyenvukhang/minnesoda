@@ -17,7 +17,7 @@ const getComponents = ({ math }) => {
 
   const md = {
     block: math ? 'block' : 'hidden',
-    inline: math ? 'inline-block' : 'hidden',
+    inline: math ? 'inline' : 'hidden',
     plainMath: math ? 'hidden' : 'inline-block',
   }
 
@@ -58,7 +58,7 @@ const getComponents = ({ math }) => {
     return (
       <>
         <span className={`${color.mathjax.inline} ${md.inline}`}>
-          <MathJax inline>{`\\(${children}\\)`}</MathJax>
+          <MathJax inline>{`\\(\\smash{${children}}\\)`}</MathJax>
         </span>
         <span className={`${color.plainMath} ${md.plainMath}`}>
           {children}
