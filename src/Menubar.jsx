@@ -6,10 +6,10 @@ const Menubar = ({ state, components, router }) => {
     : 'text-neutral-400'
   const env = process.env.NODE_ENV
 
-  const Reload = () => {
+  const Work = () => {
     return env === 'development' ? (
       <>
-        <components.a href="#">Reload</components.a>
+        <components.a href="/work">Work</components.a>
         <div className="w-12" />
       </>
     ) : null
@@ -47,7 +47,7 @@ const Menubar = ({ state, components, router }) => {
         <HomeButton />
       </div>
       <div className="flex">
-        <Reload />
+        <Work />
         <MathToggle />
       </div>
     </div>
