@@ -12,6 +12,7 @@ import Head from '../src/Head'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
+
   const [math, setMath] = useState(true)
   const components = getComponents({ math })
 
@@ -23,7 +24,11 @@ function MyApp({ Component, pageProps }) {
           className="my-8 mx-auto max-w-3xl px-6 min-h-screen-90 flex flex-col overflow-x-hidden"
           onMouseUp={() => handleMouseUp({ router })}
         >
-          <Menubar state={[math, setMath]} components={components} router={router}/>
+          <Menubar
+            state={[math, setMath]}
+            components={components}
+            router={router}
+          />
           <Component {...pageProps} />
           <div className="flex-1" />
           <Footer />
