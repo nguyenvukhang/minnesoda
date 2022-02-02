@@ -4,12 +4,11 @@ const Menubar = ({ state, components, router }) => {
   const toggleButtonColor = math
     ? 'text-pink-500'
     : 'text-neutral-400'
-  const env = process.env.NODE_ENV
 
-  const Reload = () => {
-    return env === 'development' ? (
+  const Work = () => {
+    return process.env.NODE_ENV === 'development' ? (
       <>
-        <components.a href="#">Reload</components.a>
+        <components.a href="/work">Work</components.a>
         <div className="w-12" />
       </>
     ) : null
@@ -47,7 +46,7 @@ const Menubar = ({ state, components, router }) => {
         <HomeButton />
       </div>
       <div className="flex">
-        <Reload />
+        <Work />
         <MathToggle />
       </div>
     </div>
