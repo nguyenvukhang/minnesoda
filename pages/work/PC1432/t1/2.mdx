@@ -1,0 +1,64 @@
+[back to tutorial](/work/PC1432/t1)
+
+2
+=
+
+Consider the force along the y-direction:
+
+For every positive charge contributing a downward vector, there is an
+equal and opposite negative charge reflected about the y-axis
+contributing and equal and opposite upward vector. Hence the electric
+field has a net y-component of zero.
+
+Let us consider the x-component.
+
+Let a small section of the curve on the negative side be `\d Q`.
+Let the angle that it, the centre, and the positive x-axis forms be
+`\theta`.
+
+Then the electric field along the x-component caused by each small
+section is
+
+```
+\d E = \df{1}{4\pi\epsilon_0} \df{\d Q}{a^2} \cos\theta
+```
+
+Since a total charge of `Q` is spread across a quarter circle, we have
+
+```
+\begin{align*}
+\df{\d Q}{\d \theta}
+&= \df{Q}{\left(\f{\pi}{2}\right)} \\
+&= \df{2Q}{\pi}
+\end{align*}
+```
+
+Substituting this into the equation for `\d E`, we have
+
+```
+\d E = \df{1}{4\pi\epsilon_0} \df{2Q}{\pi a^2} \cos\theta\;\d\theta
+```
+
+To obtain the net electric field caused by the left half, we
+integrate:
+
+```
+\begin{align}
+E
+&= \intd{0}{\f{\pi}{2}}{\df{1}{4\pi\epsilon_0}\df{2Q}{\pi a^2}\cos\theta}{\theta} \\
+&= \df{Q}{2\pi^2 \epsilon_0 a^2}\intd{0}{\f{\pi}{2}}{\cos\theta}{\theta} \\
+&= \df{Q}{2\pi^2 \epsilon_0 a^2} \\
+\end{align}
+```
+
+Similarly, the net electric field caused by the right half will have
+the same magnitude, but be in the opposite direction.
+
+So the net electric field at the origin produced by the entire
+semi-circle distribution of change is
+
+```
+E_\text{net} = \df{Q}{2\pi^2 \epsilon_0 a^2} \\
+```
+
+in the positive x-direction.

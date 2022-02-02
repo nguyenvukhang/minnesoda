@@ -2,12 +2,12 @@ import { MDXProvider } from '@mdx-js/react'
 import '../src/global.css'
 import { MathJaxContext } from 'better-react-mathjax'
 import { useState } from 'react'
-import Menubar from '../src/Menubar'
 import getComponents from '../src/MdxComponents'
 import { handleMouseUp } from '../src/Tooltip'
 import MathjaxConfig from '../src/MathjaxConfig'
 import { useRouter } from 'next/router'
 import Footer from '../src/Footer'
+import Menubar from '../src/Menubar'
 import Head from '../src/Head'
 
 function MyApp({ Component, pageProps }) {
