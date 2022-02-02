@@ -40,7 +40,7 @@ const getComponents = ({ math }) => {
         <div
           className={`overflow-x-auto overflow-y-hidden ${color.mathjax.block} ${md.block}`}
         >
-          <MathJax>{`$$${increasedSpacing}$$`}</MathJax>
+          <MathJax dynamic>{`$$${increasedSpacing}$$`}</MathJax>
         </div>
         <div
           className={`${color.plainMath} ${md.plainMath} mb-1-h border`}
@@ -58,7 +58,7 @@ const getComponents = ({ math }) => {
     return (
       <>
         <span className={`${color.mathjax.inline} ${md.inline}`}>
-          <MathJax inline>{`\\(\\smash{${children}}\\)`}</MathJax>
+          <MathJax inline dynamic>{`\\(\\smash{${children}}\\)`}</MathJax>
         </span>
         <span className={`${color.plainMath} ${md.plainMath}`}>
           {children}
