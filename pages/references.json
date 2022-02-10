@@ -10,6 +10,9 @@
     "postulate 5": {
       "definition": "/gm/postulates#fifth-postulate"
     },
+    "easy limits": {
+      "definition": "/cl/2#easy-limits"
+    },
     "triangle inequality": {
       "definition": "/gm/triangle-inequality"
     },
