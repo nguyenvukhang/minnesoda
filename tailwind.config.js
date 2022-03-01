@@ -2,7 +2,7 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      jetbrains: ['"JetBrains Mono"'],
+      "ibm-plex": ['"IBM Plex Sans"'],
     },
     extend: {
       colors: {
@@ -14,7 +14,7 @@ module.exports = {
         },
       },
       letterSpacing: {
-        custom: '-0.01em',
+        custom: '0.00em',
       },
       textUnderlineOffset: {
         5: '5px',
