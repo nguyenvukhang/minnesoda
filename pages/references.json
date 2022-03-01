@@ -8,22 +8,22 @@
   },
   "navigation": {
     "postulate 5": {
-      "definition": "/gm/postulates#fifth-postulate"
+      "definition": "/geometry/postulates#fifth-postulate"
     },
     "easy limits": {
-      "definition": "/cl/2#easy-limits"
+      "definition": "/calculus/2#easy-limits"
     },
     "triangle inequality": {
-      "definition": "/gm/triangle-inequality"
+      "definition": "/geometry/triangle-inequality"
     },
     "archimedean property": {
-      "definition": "/bd/archimedean-property"
+      "definition": "/basics/archimedean-property"
     },
     "saccheri": {
-      "definition": "/gm/gerolamo-saccheri"
+      "definition": "/geometry/gerolamo-saccheri"
     },
     "coulomb's law": {
-      "definition": "/physics/ec/electric-force-between-charges"
+      "definition": "/physics/electric-charge/electric-force-between-charges"
     }
   }
 }
