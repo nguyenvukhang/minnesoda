@@ -10,8 +10,9 @@ const opts = {
   tex: {
     macros: {
       f: ['\\frac{#1}{#2}', 2],
+      a: ['\\angle{#1}', 1],
+      tri: ['\\triangle{#1}', 1],
       R: '{\\mathbb R}',
-      bold: ['{\\bf #1}', 1],
     },
   },
 }
