@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* mathjax stuff */
+  div.math-display, _ { @apply flex flex-row justify-center; }
+  span.math-inline, _ { @apply inline-flex; }
+
+  /* markdown components */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold mt-6;
+  }
+  h1 { @apply text-4xl  mb-3   ;}
+  h2 { @apply text-3xl  mb-2.5 ;}
+  h3 { @apply text-2xl  mb-2   ;}
+  h4 { @apply text-xl   mb-1.5 ;}
+  h5 { @apply text-lg   mb-1   ;}
+  h6 { @apply           mb-0.5 ;}
+  /* post-paragraph spacing */
+  p, .tw-table, ul, ol, pre { @apply mb-3 ;}
+  a  { @apply text-blue-600 hover:underline ;}
+
+  ul { @apply list-disc    list-outside pl-12 }
+  ol { @apply list-decimal list-outside pl-12 }
+  /* nested lists */
+  li > ul, li > ol { @apply pl-8 mb-0 }
+
+  hr { @apply border-gray-200 border-2 my-6 }
+
+  /*
+   * tables
+   * see also: .tw-table
+   */
+  thead, tbody, th, tr, td {
+    @apply border border-gray-200 py-1 px-2;
+  }
+  th { @apply bg-gray-50; }
+
+  blockquote { @apply text-gray-400 border-l-4 border-l-gray-200 pl-4 ;}
+
+  /* all code */
+  code, pre {
+    @apply bg-gray-100 rounded-sm text-sm;
+  }
+  /* inline code */
+  code {
+    @apply py-0.5 px-1;
+  }
+  /* code blocks */
+  pre {
+    @apply p-2;
+  }
+}
