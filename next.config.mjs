@@ -9,7 +9,8 @@ import rehypeMathjax from 'rehype-mathjax'
 const opts = {
   tex: {
     macros: {
-      f: ['\\frac{#1}{#2}', 2],
+      f: ['\\dfrac{#1}{#2}', 2],
+      tf: ['\\tfrac{#1}{#2}', 2],
       a: ['\\angle{#1}', 1],
       tri: ['\\triangle{#1}', 1],
       R: '{\\mathbb R}',
