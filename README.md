@@ -6,4 +6,5 @@
 - next.js
 - tailwindcss
 - inline mathjax vertical alignment
+- mathjax macros
 - responsive design (mobile-friendly)
