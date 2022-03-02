@@ -5,3 +5,4 @@
 - live-edit mathjax + markdown
 - next.js
 - tailwindcss
+- inline mathjax vertical alignment
