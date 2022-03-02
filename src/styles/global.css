@@ -18,6 +18,7 @@
   h5 { @apply text-lg   mb-1   ;}
   h6 { @apply           mb-0.5 ;}
   /* post-paragraph spacing */
+  p { @apply leading-7; }
   p, .tw-table, ul, ol, pre { @apply mb-3 ;}
   a  { @apply text-blue-600 hover:underline ;}
 
