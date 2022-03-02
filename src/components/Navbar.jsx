@@ -1,11 +1,10 @@
 import Link from '@/components/mdx/Link'
 
-const Menubar = () => {
+const Navbar = () => {
   const Work = () => {
     return process.env.NODE_ENV === 'development' ? (
       <>
         <Link href="/work">Work</Link>
-        <div className="w-12" />
       </>
     ) : null
   }
@@ -15,7 +14,7 @@ const Menubar = () => {
   }
 
   return (
-    <div className="mb-8 flex flex-row">
+    <div className="my-8 flex flex-row">
       <div className="flex-1 flex">
         <HomeButton />
       </div>
@@ -26,4 +25,4 @@ const Menubar = () => {
   )
 }
 
-export default Menubar
+export default Navbar

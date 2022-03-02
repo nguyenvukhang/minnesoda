@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar'
 function App({ Component, pageProps }) {
   return (
     <Container>
-      <Navbar components={Components} />
+      <Navbar />
       <MDXProvider components={Components}>
         <Component {...pageProps} />
       </MDXProvider>
