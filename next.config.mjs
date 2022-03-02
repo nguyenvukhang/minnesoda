@@ -3,7 +3,6 @@ import remarkGfm from 'remark-gfm'
 import rehypeMathjax from 'rehype-mathjax'
 
 // TODO: insert a \smash into every inline-math
-import mdxInit from '@next/mdx'
 
 // reference: mathjax options
 // http://docs.mathjax.org/en/latest/options/
@@ -17,19 +16,25 @@ const opts = {
   },
 }
 
-// mdx reference
-// https://www.npmjs.com/package/@next/mdx
-const withMDX = mdxInit({
-  options: {
-    remarkPlugins: [remarkMath, remarkGfm],
-    rehypePlugins: [[rehypeMathjax, opts]],
-    // rehypePlugins: [],
-    providerImportSource: '@mdx-js/react',
-  },
-})
-
-const nextConfig = withMDX({
+const myConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-})
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.mdx/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: '@mdx-js/loader',
+          options: {
+            remarkPlugins: [remarkMath, remarkGfm],
+            rehypePlugins: [[rehypeMathjax, opts]],
+            providerImportSource: '@mdx-js/react',
+          },
+        },
+      ],
+    })
+    return config
+  },
+}
 
-export default nextConfig
+export default myConfig

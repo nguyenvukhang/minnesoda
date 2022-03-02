@@ -67,11 +67,6 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.1.0.tgz#73713399399b34aa5a01771fb73272b55b22c314"
   integrity sha512-nrIgY6t17FQ9xxwH3jj0a6EOiQ/WDHUos35Hghtr+SWN/ntHIQ7UpuvSi0vaLzZVHQWaDupKI+liO5vANcDeTQ==
 
-"@next/mdx@^12.1.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-12.1.0.tgz#0100917865012b16adc6806f0b1b126e7fa6dd79"
-  integrity sha512-Y+VF6mMbm7pbiSj6c0YI0bD02aK0JUglWplHW48o65JYGhJSD7jzDfuIJG6/XdQ8fhTnDj/6+kYLnV+1QmXFRQ==
-
 "@next/swc-android-arm64@12.1.0":
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/@next/swc-android-arm64/-/swc-android-arm64-12.1.0.tgz#865ba3a9afc204ff2bdeea49dd64d58705007a39"
@@ -1986,15 +1981,9 @@ remark-gfm@^3.0.1:
     micromark-extension-gfm "^2.0.0"
     unified "^10.0.0"
 
-remark-math@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/remark-math/-/remark-math-5.1.1.tgz#459e798d978d4ca032e745af0bac81ddcdf94964"
-  integrity sha512-cE5T2R/xLVtfFI4cCePtiRn+e6jKMtFDR3P8V3qpv8wpKjwvHoBA4eJzvX+nVrnlNy0911bdGmuspCSwetfYHw==
-  dependencies:
-    "@types/mdast" "^3.0.0"
-    mdast-util-math "^2.0.0"
-    micromark-extension-math "^2.0.0"
-    unified "^10.0.0"
+"remark-math@link:./src/packages/remark-math":
+  version "0.0.0"
+  uid ""
 
 remark-mdx@^2.0.0:
   version "2.0.0"
