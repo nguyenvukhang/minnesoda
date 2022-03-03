@@ -1,6 +1,7 @@
 import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
 import rehypeMathjax from 'rehype-mathjax'
+import rehypeSlug from 'rehype-slug'
 
 // TODO: insert a \smash into every inline-math
 
@@ -29,7 +30,7 @@ const myConfig = {
           loader: '@mdx-js/loader',
           options: {
             remarkPlugins: [remarkMath, remarkGfm],
-            rehypePlugins: [[rehypeMathjax, opts]],
+            rehypePlugins: [[rehypeMathjax, opts], rehypeSlug],
             providerImportSource: '@mdx-js/react',
           },
         },

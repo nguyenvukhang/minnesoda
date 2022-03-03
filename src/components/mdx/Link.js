@@ -1,7 +1,8 @@
 import NextLink from 'next/link'
 
 const Link = ({ href, children, className }) => {
-  const isInternal = href[0] === '/'
+  const i = href[0]
+  const isInternal = i === '/' || i === '#'
   return isInternal ? (
     <NextLink href={href}>
       <a className={className}>{children}</a>
