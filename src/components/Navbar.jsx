@@ -1,6 +1,6 @@
 import Link from '@/components/mdx/Link'
 
-const Navbar = () => {
+const Navbar = ({ router }) => {
   const Work = () => {
     return process.env.NODE_ENV === 'development' ? (
       <>
