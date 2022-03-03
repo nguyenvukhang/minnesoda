@@ -1,6 +1,7 @@
 const Headers = {}
 
 function sanitize(str) {
+  if (!str) { return '' }
   const clean = str.replace(/ /g, '-')
   return clean
 }
