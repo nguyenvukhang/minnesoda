@@ -30,7 +30,7 @@ const myConfig = {
           loader: '@mdx-js/loader',
           options: {
             remarkPlugins: [remarkMath, remarkGfm],
-            rehypePlugins: [[rehypeMathjax, opts], rehypeSlug],
+            rehypePlugins: [[rehypeMathjax, opts]],
             providerImportSource: '@mdx-js/react',
           },
         },
