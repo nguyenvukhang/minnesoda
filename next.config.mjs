@@ -1,9 +1,6 @@
 import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
 import rehypeMathjax from 'rehype-mathjax'
-import rehypeSlug from 'rehype-slug'
-
-// TODO: insert a \smash into every inline-math
 
 // reference: mathjax options
 // http://docs.mathjax.org/en/latest/options/
