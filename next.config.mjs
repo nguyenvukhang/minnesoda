@@ -18,6 +18,7 @@ const opts = {
 
 const myConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  distDir: './src/.next',
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.mdx/,
