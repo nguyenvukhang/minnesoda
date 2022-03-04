@@ -1,7 +1,7 @@
 const Headers = {}
 
 function sanitize(str) {
-  if (!str) {
+  if (typeof str != "string") {
     return ''
   }
   const clean = str.replace(/ /g, '-').toLowerCase()
