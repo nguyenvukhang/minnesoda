@@ -1,7 +1,9 @@
 const Headers = {}
 
 function sanitize(str) {
-  if (!str) { return '' }
+  if (!str) {
+    return ''
+  }
   const clean = str.replace(/ /g, '-').toLowerCase()
   return clean
 }
@@ -12,7 +14,12 @@ const h = {
 }
 
 h.linked.forEach((Tag) => {
-  Headers[Tag] = ({ children }) => <Tag id={sanitize(children)}>{children}</Tag>
+  // Headers[Tag] = ({ children }) => <Tag id={sanitize(children)}>{children}</Tag>
+  Headers[Tag] = function ({ children }) {
+    return <Tag id={sanitize(children)}>{children}</Tag>
+  }
+  Headers[Tag].displayName = Tag
 })
+console.log(Headers)
 
 export default Headers
