@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0",
     "postcss": "^8.4.7",
     "rehype-mathjax": "^4.0.2",
     "remark-gfm": "^3.0.1"
