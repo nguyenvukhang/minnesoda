@@ -14,12 +14,12 @@ const h = {
 }
 
 h.linked.forEach((Tag) => {
-  // Headers[Tag] = ({ children }) => <Tag id={sanitize(children)}>{children}</Tag>
-  Headers[Tag] = function ({ children }) {
-    return <Tag id={sanitize(children)}>{children}</Tag>
-  }
-  Headers[Tag].displayName = Tag
+  Headers[Tag] = Object.assign(
+    (props) => {
+      return <Tag {...props} id={sanitize(props.children)}/>
+    },
+    { displayName: Tag }
+  )
 })
-console.log(Headers)
 
 export default Headers
