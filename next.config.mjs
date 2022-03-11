@@ -2,16 +2,22 @@ import remarkMath from 'remark-math'
 import remarkGfm from 'remark-gfm'
 import rehypeMathjax from 'rehype-mathjax'
 
-// reference: mathjax options
-// http://docs.mathjax.org/en/latest/options/
-const opts = {
+const NumberSets = ['R', 'Z', 'C', 'Q']
+const getNumberSets = (arr) =>
+  arr.reduce((a, v) => ({ ...a, [v]: `{\\mathbb ${v}}` }), {})
+
+const MathjaxOpts = {
   tex: {
     macros: {
       f: ['\\dfrac{#1}{#2}', 2],
       tf: ['\\tfrac{#1}{#2}', 2],
       a: ['\\angle{#1}', 1],
       tri: ['\\triangle{#1}', 1],
-      R: '{\\mathbb R}',
+      lr: ['\\left(#1\\right)', 1],
+      Lr: ['\\left[#1\\right]', 1],
+      LR: ['\\left\\{#1\\right\\}', 1],
+      abs: ['\\left|#1\\right|', 1],
+      ...getNumberSets(NumberSets)
     },
   },
 }
@@ -27,7 +33,7 @@ const myConfig = {
           loader: '@mdx-js/loader',
           options: {
             remarkPlugins: [remarkMath, remarkGfm],
-            rehypePlugins: [[rehypeMathjax, opts]],
+            rehypePlugins: [[rehypeMathjax, MathjaxOpts]],
             providerImportSource: '@mdx-js/react',
           },
         },

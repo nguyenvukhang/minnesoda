@@ -1,0 +1,189 @@
+# Midterm Cheatsheet
+
+### Even/odd functions
+
+Even: $f(x) = f(-x)$, like $x^2$ (reflected about $y$-axis)
+
+Odd: $-f(x) = f(-x)$, like $x^3$ (rotational symmetry about origin)
+
+### Limits of rational functions
+
+If $\lim\limits_{x\to a} \f{f(x)}{g(x)}$ exists and equals $L$,
+and $\lim\limits_{x\to a} g(x) = 0$, then we must have
+
+$$
+\lim\limits_{x\to a} f(x) = 0
+$$
+
+because
+
+$$
+\begin{align}
+\lim\limits_{x\to a} f(x)
+  &= \lim\limits_{x\to a} \f{f(x)}{g(x)} \cdot \lim\limits_{x\to a}g(x)
+\\&= L \cdot 0
+\\&= 0
+\end{align}
+$$
+
+### Types of discontinuities
+
+- jump
+- infinite
+- removable
+- endpoint
+- mixed
+
+### Limit of composites
+
+If $f$ and $g$ are functions such that $\lim\limits_{x\to a} g(x) =
+b$, and $f(x)$ is continuous at $b$, then 
+
+$$
+\lim\limits_{x\to a} f(g(x))
+= f\lr{ \lim\limits_{x\to a} g(x) }
+= f(b)
+$$
+
+### Fermat's Theorem
+
+If $g$ has a local extreme at $c$, then we must have $g'(c) = 0$.
+
+### Precise definitions
+
+#### $\epsilon,\delta$ definition of limit
+
+Suppose $\lim\limits_{x\to a} f(x) = L$.
+
+Then for every real $\epsilon > 0$, there exists a real $\delta > 0$
+such that for all real $x$,
+
+$$
+0 < |x−a| < \delta \implies |f(x)−L| < \epsilon.
+$$
+
+#### Definition of divergent limit
+
+Suppose $\lim\limits_{x\to a} f(x) = \infty$.
+
+Then for every $M\in\R^+$, there exists a real $\delta > 0$ such that
+for all real $x$,
+
+$$
+0 < \abs{x-a} < \delta \implies f(x) > M
+$$
+
+#### Definition of limit approaching infinity
+
+Suppose $\lim\limits_{x\to\infty} f(x) = L$.
+
+then for every $\epsilon > 0$, there exists $N ∈ \R$ such that
+
+$$
+x > N \implies \abs{f(x) - L} < \epsilon
+$$
+
+#### Both go to infinity
+
+Suppose $\lim\limits_{x\to\infty} f(x) = \infty$.
+
+Then for every $M ∈ \R^+$, there exists $N ∈ \R^+$ such that
+
+$$
+x > N \implies f(x) > M
+$$
+
+### Differentiability
+
+$f$ is differentiable at $a$ if and only if
+
+$$
+f'(a) = \lim\limits_{x\to a} \f{f(x) - f(a)}{x-a}
+$$
+
+exists.
+
+### Continuity
+
+$f$ is continuous at a if $f(a)$ exists and
+
+$$
+\lim\limits_{x\to a} f(x)
+$$
+
+exists. That is, $\lim\limits_{x\to a^-} f(x) = \lim\limits_{x\to a^+} f(x)$
+
+### Binomial expansion
+
+For all positive integers $n$,
+
+$$
+\begin{align}
+a^n - b^n = (a - b)(
+a^{n-1} + a^{n-2}b + \ldots + b^{n-1}
+    )
+\end{align}
+$$
+
+and for all odd integers $n$,
+
+$$
+\begin{align}
+a^n + b^n = (a + b)(
+a^{n-1} - a^{n-2}b + \ldots + b^{n-1}
+    )
+\end{align}
+$$
+
+Note that since $a - b = \lr{a^\tf{1}{n}}^n - \lr{b^\tf{1}{n}}^n$,
+
+$$
+a - b = \lr{a^\tf{1}{n} - b^\tf{1}{n}}
+\lr{
+a^\tf{n-1}{n} - a^\tf{n-2}{n}b^\tf{1}{n} + \ldots + b^\tf{n-1}{n}
+}
+$$
+
+### Rolle's Theorem
+
+Suppose $f$ is a function which is continuous on $[a,b]$.
+
+If $f(a) = f(b)$, then there exists a number $c \in (a,b)$ such that
+$f'(c) = 0$.
+
+#### Mean value theorem
+
+Suppose $f$ is a function which is continuous on $[a,b]$.
+
+Then there exists a number $c \in [a,b]$ such that
+
+$$
+f'(c) = \f{f(b) - f(a)}{b - a}
+$$
+
+### Showing at most $n$ roots
+
+Assume that $f(x) = x^4 - 4x + 1$ has **three** real roots $x_1 < x_2 <
+x_3$. Then $f(x_1) = f(x_2) = f(x_3) = 0$.
+
+By [Rolle's Theorem](#rolle's-theorem), there exist $d_1\in(x_1, x_2)$
+and $d_2\in(x_2, x_3)$ such that $f'(d_1) = f'(d_2) = 0$
+
+However, $f'(x) = 4x^3 - 4$. We would have $d_2 = d_1 = 1$, a
+contradiction. So $f(x) = 0$ has at most **two** real roots.
+
+### Intermediate Value Theorem
+
+Suppose $f$ is continuous on $[a,b]$.
+
+Then there exists $c \in [a,b]$ such that $f(c) \in (f(a),f(b))$.
+
+### Showing at least $n$ roots
+
+For every root, use Intermediate Value Theorem on both sides.
+
+### Proving Limits
+
+Think blunt. We only need to find a $\delta$ in terms of $\epsilon$
+such that given $0 < \abs{x-a} < \delta$, $\abs{f(x) - L} < \epsilon$
+is guaranteed.
