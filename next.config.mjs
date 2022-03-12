@@ -12,6 +12,7 @@ const MathjaxOpts = {
       f: ['\\dfrac{#1}{#2}', 2],
       tf: ['\\tfrac{#1}{#2}', 2],
       a: ['\\angle{#1}', 1],
+      d: '\\mathrm{d}',
       tri: ['\\triangle{#1}', 1],
       lr: ['\\left(#1\\right)', 1],
       Lr: ['\\left[#1\\right]', 1],
