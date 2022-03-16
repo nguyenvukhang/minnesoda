@@ -6,22 +6,15 @@ Makes sense
 * ceva's theorem
 * menelaus' theorem
 
-Doesn't make sense
-* varignon? trying to see with geogebra
-  * parallelograms do not exist in projective geometry
-* steiner-lehmus theorem
-
-
-asldfkj
-* [projective space](#things-that-makes-sense-in-projective-geometry)
-* [affine space]()
-
 ## Things that don't make sense in projective geometry
 
 These are theorems that do not hold true across all projections. In
 each of the theorems covered, I will be providing an example of a case
 where the theorem doesn't hold after a projection, followed by a
 commentary on its applicability in affine geometry.
+
+1. [Varignon's Theorem](#varignon's-theorem)
+2. [Steiner-Lehmus Theorem](#steiner-lehmus-theorem)
 
 ### Varignon's Theorem
 
@@ -54,6 +47,32 @@ correspond.
 
 Since the picture remains valid and the parallelogram is still
 present, Varignon's Theorem holds in affine geometry.
+
+### Steiner-Lehmus Theorem
+
+![menelaus](/geometry/steiner-lehmus.png)
+
+Again, let the blue features be a picture of the Steiner-Lehmus
+theorem on the $z = 1$ plane, and let the orange features be that
+picture projected onto the $x+y+z=2$ plane.
+
+With this projection, we can observe two additional properties of
+projection:
+1. **angles are not preserved.** E lies inside of AB but E' lies
+   outside of A'B'. So $\a{ACB} > \a{ECB}$ (2 times, to be exact,
+   since the blue picture is a construction of the Steiner-Lehmus
+   theorem.) but $\a{A'C'B'} < \a{E'C'B'}$. So clearly at least one of
+   the angles changed after the projection.
+2. **ratios of non-collinear lengths are not preserved.** $AB = AC$
+   but $A'B' \neq A'C'$.
+
+With these properties of projection, isoceles triangles and angle
+bisectors are not preserved either. Hence the Steiner-Lehmus theorem
+doesn't hold after a projection.
+
+This theorem doesn't hold in affine geometry because affine
+transformations do not preserve angles. (take for example the skew
+transformation)
 
 ## Things that makes sense in projective geometry
 
