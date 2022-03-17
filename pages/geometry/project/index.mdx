@@ -76,6 +76,53 @@ transformation)
 
 ## Things that makes sense in projective geometry
 
+So far, there are a few properties that have been seen to be preserved
+under projections:
+1. **collinearity.** If $A$, $B$, $C$ are collinear, then their
+   projections $A'$, $B'$, $C'$ will be collinear too.
+2. **concurrence.** If lines $AB$ and $CD$ meet at $E$, then their
+   projections $A'B'$ and $C'D'$ will meet at the projection of $E$,
+   that is $E'$.
+
+I will be proving that these two properties hold under all
+transformations in the projective space, and after that I will list
+two theorems which only comment on these properties. If the theorems
+only concern properties that are projective invariant, they should
+hold under all projections.
+
+Before continuing, we establish some standardized notation for the
+following statements.
+
+* A projective point is a line in $\R^3$ that passes through the
+  origin. If $A$ is a projective point then there exists
+  $\mathbf{v}\in\R^3 \setminus \{0\}$ such that $A$ is on the line in
+  $\R^3$ that passes through $\mathbf{0}$ and $\mathbf{v}$. Thus, we
+  can define $\pi : \R^3 \setminus \{0\} \to \mathbb{P}^2$ as follows:
+  $\pi(\mathbf{v})$ is the projective point through $\mathbf{0}$ and
+  $\mathbf{v}$.
+* The projective plane $\mathbb{P}^2$ is the set of all projective
+  points.
+* A projective line is a plane in $\R^3$ that passes through the
+  origin. Given two projective points $A$ and $B$ there exists a
+  unique projective line $r$ such that $A$ and $B$ lie on $r$. Let
+  such a projective line be denoted by $\mathcal{L}(A,B)$.
+
+### Proof that collinearity is projective invariant
+
+Let $\newcommand\pp[2]{#1(\mathbf{#2})}\pp{\pi}{u}$, $\pp{\pi}{v}$,
+$\pp{\pi}{w}$ be three collinear points on the projective plane. Then
+they will also lie on a plane $\omega$ which passes through the origin
+(and contains vectors $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$).
+Consider a new plane $\pi'$ that these three points will be projected
+on. $w$ will meet $\pi'$ at a line (possibly at infinity). Since the
+projections of $\pp{\pi}{u}$, $\pp{\pi}{v}$, and $\pp{\pi}{w}$ will
+lie on this new line of intersection, their projections will be
+collinear again.
+
+### Proof that concurrence is projective invariant
+
+Let 
+
 ### Menelaus' theorem
 
 ![menelaus](/geometry/menelaus.svg)
