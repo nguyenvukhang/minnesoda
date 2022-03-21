@@ -1,11 +1,5 @@
 # MA2219 Project
 
-Makes sense
-* pappus' theorem
-* desargues' theorem
-* ceva's theorem
-* menelaus' theorem
-
 ## Things that don't make sense in projective geometry
 
 These are theorems that do not hold true across all projections. In
@@ -25,6 +19,7 @@ on the plane $z = 1$, and let the orange points and lines be their
 projection onto the plane $x + z = \tf{3}{2}$.
 
 With this projection we can observe two things:
+
 1. **Collinearity is preserved.** If three points are collinear before
    the projection, then they will remain collinear after the
    projection.
@@ -58,6 +53,7 @@ picture projected onto the $x+y+z=2$ plane.
 
 With this projection, we can observe two additional properties of
 projection:
+
 1. **angles are not preserved.** E lies inside of AB but E' lies
    outside of A'B'. So $\a{ACB} > \a{ECB}$ (2 times, to be exact,
    since the blue picture is a construction of the Steiner-Lehmus
@@ -78,6 +74,7 @@ transformation)
 
 So far, there are a few properties that have been seen to be preserved
 under projections:
+
 1. **collinearity.** If $A$, $B$, $C$ are collinear, then their
    projections $A'$, $B'$, $C'$ will be collinear too.
 2. **concurrence.** If lines $AB$ and $CD$ meet at $E$, then their
@@ -93,26 +90,28 @@ hold under all projections.
 Before continuing, we establish some standardized notation for the
 following statements.
 
-* A projective point is a line in $\R^3$ that passes through the
-  origin. If $A$ is a projective point then there exists
-  $\mathbf{v}\in\R^3 \setminus \{0\}$ such that $A$ is on the line in
-  $\R^3$ that passes through $\mathbf{0}$ and $\mathbf{v}$. Thus, we
-  can define $\pi : \R^3 \setminus \{0\} \to \mathbb{P}^2$ as follows:
-  $\pi(\mathbf{v})$ is the projective point through $\mathbf{0}$ and
-  $\mathbf{v}$.
-* The projective plane $\mathbb{P}^2$ is the set of all projective
-  points.
-* A projective line is a plane in $\R^3$ that passes through the
-  origin. Given two projective points $A$ and $B$ there exists a
-  unique projective line $r$ such that $A$ and $B$ lie on $r$. Let
-  such a projective line be denoted by $\mathcal{L}(A,B)$.
+1. A projective point is a line in $\R^3$ that passes through the
+   origin. If $A$ is a projective point then there exists
+   $\mathbf{v}\in\R^3 \setminus \{0\}$ such that $A$ is on the line in
+   $\R^3$ that passes through $\mathbf{0}$ and $\mathbf{v}$. Thus, we
+   can define $\pi : \R^3 \setminus \{0\} \to \mathbb{P}^2$ as follows:
+   $\pi(\mathbf{v})$ is the projective point through $\mathbf{0}$ and
+   $\mathbf{v}$.
+2. The projective plane $\mathbb{P}^2$ is the set of all projective
+   points.
+3. A projective line is a plane in $\R^3$ that passes through the
+   origin. Given two projective points $A$ and $B$ there exists a
+   unique projective line $r$ such that $A$ and $B$ lie on $r$. Let
+   such a projective line be denoted by $\mathcal{L}(A,B)$.
 
 ### Proof that collinearity is projective invariant
 
 Let $\newcommand\pp[2]{#1(\mathbf{#2})}\pp{\pi}{u}$, $\pp{\pi}{v}$,
 $\pp{\pi}{w}$ be three collinear points on the projective plane. Then
-they will also lie on a plane $\omega$ which passes through the origin
-(and contains vectors $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$).
+those points and the vectors $\mathbf{u}$, $\mathbf{v}$, and
+$\mathbf{w}$ will also lie on a plane $\omega$ which passes through
+the origin.
+
 Consider a new plane $\pi'$ that these three points will be projected
 on. $w$ will meet $\pi'$ at a line (possibly at infinity). Since the
 projections of $\pp{\pi}{u}$, $\pp{\pi}{v}$, and $\pp{\pi}{w}$ will
@@ -121,7 +120,24 @@ collinear again.
 
 ### Proof that concurrence is projective invariant
 
-Let 
+Let $\mathcal{L}(A,B)$ intersect $\mathcal{L}(C,D)$ at point $M$ on
+the projective plane $\pi$. Then there are two sets of collinear
+points: $\{A, B, M\}$ and $\{C, D, M\}$. Let the projection onto a new
+plane $\pi'$ of an arbitrary point $X$ on $\pi$ be denoted by $X'$.
+
+Since collinearity is projective-invariant, we have two new sets of
+collinear points on $\pi'$: $\{A', B', M'\}$ and $\{C', D', M'\}$. And
+so clearly, $\mathcal{L}(A',B')$ intersects $\mathcal{L}(C', D')$ at
+$M'$. So the intersection of the projection of lines
+$\mathcal{L}(A,B)$ and $\mathcal{L}(C,D)$ is the same as the
+projection of their intersection.
+
+Thus concurrence is projective-invariant.
+
+### Theorems which only concern collinearity and concurrence
+
+Desargues' theorem and Pappus' theorem only make statements about
+collinearity and concurrences, and thus hold after projections.
 
 ### Menelaus' theorem
 
