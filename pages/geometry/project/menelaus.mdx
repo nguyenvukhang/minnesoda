@@ -1,0 +1,37 @@
+# Menelaus' theorem
+
+![menelaus](/geometry/menelaus.svg)
+
+The theorem in states that
+
+$$
+\f{AD}{DB}\cdot
+\f{BE}{EC}\cdot
+\f{CF}{FA} = -1
+$$
+
+However, in Euclidean space this requires $DE$ to be anything but
+parallel to $AC$, else they don't meet, by the Fifth Postulate, and
+the last point $F$ doesn't exist.
+
+If this triangle is set in projective space, we can say that point $F$
+exists at infinity, where
+
+$$
+\lim\limits_{F\to\infty} \f{CF}{FA} = -1
+$$
+
+And since we have $DE\parallel AC,$ by Thales' theorem on intercepts,
+we have
+
+$$
+\f{AD}{DB} = \f{CE}{EB}
+$$
+
+from which we can easily show that
+
+$$
+\f{AD}{DB} = \lr{\f{BE}{EC}}^{-1}
+$$
+
+With these results, Menelaus' theorem holds true again.
