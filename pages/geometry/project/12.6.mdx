@@ -1,18 +1,37 @@
 The dual to Pappus' theorem is itself.
 
-From the textbook:
-If A, C, E are three points on one line, B, D, F on another, and if
-the three lines AB, CD, EF meet DE, FA, BC respectively at points L,
-M, N, then L, M, N are collinear.
+Pappus' theorem states that: If $A$, $B$, $C$ are three points on one
+line, $a$, $b$, $c$ on another, and if the three lines $Ab$, $Bc$,
+$Ca$ meet $Ba$, $Cb$, $Ac$ respectively at points $X$, $Y$, $Z$, then
+$X$, $Y$, $Z$ are collinear.
 
-The dual, swappings points and lines:
+The dual:
 
-In the following declaration, let AB denote the point of intersection
-of lines A and B.
+In the following declaration, let $AB$ denote the point of
+intersection of lines $A$ and $B$.
 
-If A, C, E are three lines that meet at a point P, and B, D, F a
-different set of three lines that meet at a point Q, and if the three
-points AB, CD, EF join to DE, FA, BC respectively forming lines L, M,
-N, then L, M, N meet at one point R.
+If $A'$, $B'$, $C'$ are three lines that meet at a point $P'$, and $a'$,
+$b'$, $c'$ a different set of three lines that meet at a point $p'$, and
+if the three points $A'b'$, $B'c'$, $C'a'$ join to $B'a'$, $C'b'$, $C'a'$
+respectively forming lines $X'$, $Y'$, $Z'$, then $X'$, $Y'$, $Z'$ meet at
+one point $R'$.
 
+In the first declaration of Pappus' theorem, take note of two
+particular lines:
+1. the line on which $A$, $B$, $C$ lie on. Let this line be $A'$.
+   Observe that $A'$ also has three named points in the dual
+   statement: $P'$, $A'c'$, $A'b'$
+2. the line on which $a$, $b$, $c$ lie on. Let this line be $a'$.
+   Observe that $a'$ similarly has three named points in the dual
+   statement: $Q'$, $B'a'$, $C'a'$.
 
+So taking the following mapping: $A \to P'$, $B \to A'c'$, $C \to
+A'b'$, $a \to Q'$, $b \to B'a'$, $c \to C'a'$, it can be seen that the
+two dual statements are making the same claim.
+
+Hence, the dual of Pappus' theorem is itself.
+
+We will proceed to prove Pappus' theorem, using definitions from the
+first declaration.
+
+Let $U$ lie on the intersection of $Ba$ and $Cb$.
