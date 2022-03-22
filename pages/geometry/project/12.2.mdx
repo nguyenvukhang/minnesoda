@@ -1,0 +1,115 @@
+Let four points $A$, $B$, $C$, $D$ be collinear, and in that
+particular order. Note that this means $AC$ separates $BD$.
+
+Then let the cross ratio $\newcommand\cr[1]{\langle{#1}\rangle}
+\cr{A,B,C,D} = \lambda$. In particular,
+
+$$
+\f{AC \cdot BD}{AD \cdot BC} = \lambda
+$$
+
+There are a total of $4!$ ways to permutate four points, but observe
+that
+
+$$
+\cr{A,B,C,D} = \f{AC \cdot BD}{AD \cdot BC} = \cr{B,A,D,C} 
+$$
+
+hence swapping points pair-wise doesn't change the cross ratio, and
+
+$$
+\cr{A,B,C,D}
+= \f{AC \cdot BD}{AD \cdot BC}
+= \f{CA \cdot DB}{CB \cdot DA}
+= \cr{C,D,A,B}
+$$
+
+hence swapping the pairs doesn't change the cross ratio.
+
+So that means we have a family of cross ratios that are equal:
+
+$$
+\cr{A,B,C,D}
+= \cr{B,A,D,C}
+= \cr{C,D,A,B}
+= \cr{D,C,B,A}
+$$
+
+This narrows our search of unique cross ratio values to just $4! \div
+4 = 6$.
+
+Now, let variable points $P$, $Q$, $R$, $S$ be new points that take
+different permutations of the positions of $A$, $B$, $C$, $D$.
+
+For conciseness, let $(P,Q,R,S)$ denote that $P$ is placed at $A$, $Q$
+is placed at $B$, $R$ is placed at $C$, and $S$ is placed at $D$.
+
+---
+
+Case 1: $(P,Q,R,S)$
+
+This is the original case, so
+$$
+\cr{P,Q,R,S} = \cr{A,B,C,D} = \lambda
+$$
+
+---
+
+Case 2: $(Q, P, R, S)$
+$$
+\cr{P,Q,R,S}
+= \f{PR\cdot QS}{PS\cdot QR}
+= \f{BC\cdot AD}{BD\cdot AC}
+= \f{1}{\lambda}
+$$
+
+Note that this case also equals $\cr{B,A,C,D} = \cr{A,B,D,C}$.
+
+---
+
+Case 3: $(P,S,Q,R)$
+
+$$
+\cr{P,Q,R,S}
+= \f{PR\cdot QS}{PS\cdot QR}
+= \f{AD\cdot CB}{AB\cdot CD}
+= \lr{\f{AB\cdot CD}{AD\cdot CB}}^{-1}
+= \f{1}{1-\lambda}
+$$
+
+Note that this case also equals $\cr{A,C,D,B}$.
+
+---
+
+Case 4: $(P,R,Q,S)$
+$$
+\cr{P,Q,R,S}
+= \f{PR\cdot QS}{PS\cdot QR}
+= \f{AB\cdot CD}{AD\cdot CB}
+= \cr{A,C,B,D}
+$$
+
+Consider the ratio of $\cr{A,C,B,D}$ and $\cr{A,D,B,C}$:
+$$
+\begin{align}
+\cr{A,C,B,D} \div \cr{A,D,B,C}
+\end{align}
+$$
+
+---
+
+Case 5: $(P,R,S,Q)$
+
+$$
+\cr{P,Q,R,S}
+= \f{PR\cdot QS}{PS\cdot QR}
+= \f{AB\cdot DC}{AC\cdot DB}
+= \cr{A,D,B,C}
+$$
+
+With reference to case 2, and since $AC$ separates $BD$,
+$$
+\cr{A,D,B,C}
+= 1 - \cr{A,B,D,C}
+= 1 - \f{1}{\lambda} = \f{\lambda - 1}{\lambda}
+$$
