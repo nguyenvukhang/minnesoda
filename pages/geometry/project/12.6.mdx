@@ -16,6 +16,8 @@ if the three points $A'b'$, $B'c'$, $C'a'$ join to $B'a'$, $C'b'$, $C'a'$
 respectively forming lines $X'$, $Y'$, $Z'$, then $X'$, $Y'$, $Z'$ meet at
 one point $R'$.
 
+![pappus](/geometry/pappus.png)
+
 In the first declaration of Pappus' theorem, take note of two
 particular lines:
 1. the line on which $A$, $B$, $C$ lie on. Let this line be $A'$.
@@ -34,4 +36,40 @@ Hence, the dual of Pappus' theorem is itself.
 We will proceed to prove Pappus' theorem, using definitions from the
 first declaration.
 
-Let $U$ lie on the intersection of $Ba$ and $Cb$.
+Let $U$ lie on the intersection of $Ba$ and $Cb$, $V$ lie on the
+intersection of $Ba$ and $Ac$, and $W$ lie on the intersection of $Ac$
+and $Cb$.
+
+Then, apply Menelaus' theorem on each of
+$\tri{UVW}\newcommand\menelaus[3]{\f{U#1}{#1V}\cdot\f{V#2}{#2W}\cdot\f{W#3}{#3U}
+= -1}$'s five traversal lines:
+
+1. traversal $Ab$:
+$$
+\menelaus{X}{A}{b}
+$$
+2. traversal $Ca$:
+$$
+\menelaus{a}{Y}{C}
+$$
+3. traversal $Bc$:
+$$
+\menelaus{B}{c}{Z}
+$$
+4. traversal $AC$:
+$$
+\menelaus{B}{A}{C}
+$$
+5. traversal $ac$:
+$$
+\menelaus{a}{c}{b}
+$$
+
+By taking the products of cases 1-3 divided by the products of cases 4
+and 5, we can show that
+
+$$
+\menelaus{X}{Y}{Z}
+$$
+
+Hence $X$, $Y$, $Z$ are collinear and thus proves Pappus' theorem.

@@ -9,7 +9,7 @@ function App({ Component, pageProps }) {
   const router = useRouter()
   return (
     <Container>
-      <Navbar router={router} />
+      {/* <Navbar router={router} /> */}
       <MDXProvider components={Components}>
         <Component {...pageProps} />
       </MDXProvider>
