@@ -1,5 +1,6 @@
-Let four points $A$, $B$, $C$, $D$ be collinear, and in that
-particular order. Note that this means $AC$ separates $BD$.
+Let four fixed points $A$, $B$, $C$, $D$ be distinct and collinear,
+and in that particular order. Note that this means $AC$ separates
+$BD$.
 
 Then let the cross ratio $\newcommand\cr[1]{\langle{#1}\rangle}
 \cr{A,B,C,D} = \lambda$. In particular,
@@ -7,6 +8,9 @@ Then let the cross ratio $\newcommand\cr[1]{\langle{#1}\rangle}
 $$
 \f{AC \cdot BD}{AD \cdot BC} = \lambda
 $$
+
+In particular, since $AC$, $BD$, $AD$, $BC$ are all pointing in the
+same direction, $\lambda > 0$.
 
 There are a total of $4!$ ways to permutate four points, but observe
 that
@@ -39,7 +43,7 @@ This narrows our search of unique cross ratio values to just $4! \div
 4 = 6$.
 
 Now, let variable points $P$, $Q$, $R$, $S$ be new points that take
-different permutations of the positions of $A$, $B$, $C$, $D$.
+different permutations of the fixed positions of $A$, $B$, $C$, $D$.
 
 For conciseness, let $(P,Q,R,S)$ denote that $P$ is placed at $A$, $Q$
 is placed at $B$, $R$ is placed at $C$, and $S$ is placed at $D$.
@@ -50,66 +54,98 @@ Case 1: $(P,Q,R,S)$
 
 This is the original case, so
 $$
-\cr{P,Q,R,S} = \cr{A,B,C,D} = \lambda
+\begin{align}
+\cr{P,Q,R,S}
+&= \cr{A,B,C,D} \\[0.5em]
+&= \lambda
+\end{align}
 $$
 
 ---
 
 Case 2: $(Q, P, R, S)$
 $$
+\begin{align}
 \cr{P,Q,R,S}
-= \f{PR\cdot QS}{PS\cdot QR}
-= \f{BC\cdot AD}{BD\cdot AC}
-= \f{1}{\lambda}
+&= \f{PR\cdot QS}{PS\cdot QR} \\[0.5em]
+&= \f{BC\cdot AD}{BD\cdot AC} = \cr{A,B,D,C}\\[0.5em]
+&= \f{1}{\lambda} \\[0.5em]
+\end{align}
 $$
-
-Note that this case also equals $\cr{B,A,C,D} = \cr{A,B,D,C}$.
 
 ---
 
 Case 3: $(P,S,Q,R)$
 
 $$
-\cr{P,Q,R,S}
-= \f{PR\cdot QS}{PS\cdot QR}
-= \f{AD\cdot CB}{AB\cdot CD}
-= \lr{\f{AB\cdot CD}{AD\cdot CB}}^{-1}
-= \f{1}{1-\lambda}
-$$
-
-Note that this case also equals $\cr{A,C,D,B}$.
-
----
-
-Case 4: $(P,R,Q,S)$
-$$
-\cr{P,Q,R,S}
-= \f{PR\cdot QS}{PS\cdot QR}
-= \f{AB\cdot CD}{AD\cdot CB}
-= \cr{A,C,B,D}
-$$
-
-Consider the ratio of $\cr{A,C,B,D}$ and $\cr{A,D,B,C}$:
-$$
 \begin{align}
-\cr{A,C,B,D} \div \cr{A,D,B,C}
+\cr{P,Q,R,S}
+&= \f{PR\cdot QS}{PS\cdot QR} \\[0.5em]
+&= \f{AD\cdot CB}{AB\cdot CD} = \cr{A,C,D,B} \\[0.5em]
+&= \lr{\f{AB\cdot CD}{AD\cdot CB}}^{-1} \\[0.5em]
+&= \f{1}{1-\lambda}
 \end{align}
 $$
 
 ---
 
-Case 5: $(P,R,S,Q)$
+Case 4: $(P,R,S,Q)$
 
 $$
+\begin{align}
 \cr{P,Q,R,S}
-= \f{PR\cdot QS}{PS\cdot QR}
-= \f{AB\cdot DC}{AC\cdot DB}
-= \cr{A,D,B,C}
+&= \f{PR\cdot QS}{PS\cdot QR} \\[0.5em]
+&= \f{AB\cdot DC}{AC\cdot DB} \\[0.5em]
+&= \cr{A,D,B,C}
+\end{align}
 $$
 
-With reference to case 2, and since $AC$ separates $BD$,
+Since $AC$ separates $BD$,
 $$
-\cr{A,D,B,C}
-= 1 - \cr{A,B,D,C}
-= 1 - \f{1}{\lambda} = \f{\lambda - 1}{\lambda}
+\begin{gather}
+\cr{A,D,B,C} + \cr{A,B,D,C} = 1 \\[0.5em]
+\Rightarrow \cr{A,D,B,C} = \f{\lambda - 1}{\lambda}
+\end{gather}
 $$
+
+---
+
+Case 5: $(P,R,Q,S)$
+
+$$
+\begin{align}
+\cr{P,Q,R,S}
+&= \f{PR\cdot QS}{PS\cdot QR} \\[0.5em]
+&= \f{AB\cdot CD}{AD\cdot CB} \\[0.5em]
+&= \cr{A,C,B,D}
+\end{align}
+$$
+
+Consider the ratio of $\cr{A,C,B,D}$ and $\cr{A,D,B,C}$:
+$$
+\begin{align}
+\f{\cr{A,C,B,D}}{\cr{A,D,B,C}}
+&= \f{AB\cdot CD}{AD\cdot CB} \div \f{AB\cdot DC}{AC\cdot DB} \\[0.5em]
+&= \f{AB\cdot CD}{AD\cdot CB} \cdot - \f{AC\cdot DB}{AB\cdot CD} \\[0.5em]
+&= -\f{AC\cdot DB}{AD\cdot CB} \\[0.5em]
+&= -\f{AC\cdot BD}{AD\cdot BC} \\[0.5em]
+&= -\cr{A,B,C,D} \\[0.5em]
+&= -\lambda \\[0.5em]
+\Rightarrow \cr{A,C,B,D} &= 1 - \lambda
+\end{align}
+$$
+
+---
+
+Case 6: $(P,S,R,Q)$
+
+$$
+\begin{align}
+\cr{P,Q,R,S}
+&= \f{PR\cdot QS}{PS\cdot QR} \\[0.5em]
+&= \f{AC\cdot DB}{AB\cdot DC} = \cr{A,D,C,B} \\[0.5em]
+&= \lr{\f{AB\cdot DC}{AC\cdot DB}}^{-1} \\[0.5em]
+&= \f{\lambda}{\lambda - 1}
+\end{align}
+$$
+
