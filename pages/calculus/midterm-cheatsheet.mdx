@@ -217,4 +217,22 @@ $$
 
 inflection point: a point where curvature **changes sign**.
 
+### converting infinite sums to definite integrals
 
+$$
+\lim_{n\to\infty}\sum_{i = 1}^n f(i, n)
+$$
+
+force it into this form:
+
+$$
+\lim_{n\to\infty}\sum_{i = 1}^n F \lr{\f{i}{n}} \cdot \f{1}{n}
+$$
+
+then you can safely convert it directly to
+
+$$
+\intd{0}{1}{F(x)}{x}
+$$
+
+{/* TODO: add a brief explanation for the internet */}

@@ -18,7 +18,7 @@ const MathjaxOpts = {
       Lr: ['\\left[#1\\right]', 1],
       LR: ['\\left\\{#1\\right\\}', 1],
       abs: ['\\left|#1\\right|', 1],
-      intd: ['\\int_{#1}^{#2} {#3}\ \\mathrm{d}{#4} ', 4],
+      intd: ['\\int_{#1}^{#2} {#3} \\ \\mathrm{d}{#4} ', 4],
       inti: ['\\int {#1}\\ \\mathrm{d}{#2} ', 2],
       ...getNumberSets(NumberSets)
     },
