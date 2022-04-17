@@ -277,3 +277,27 @@ $$
 &= f(h(u)) \cdot h'(u)
 \end{align}
 $$
+
+### partial fractions
+
+get good at it so you can separate fractions in integrals
+
+1. make it a proper rational expression
+2. factor the denominator
+
+Then there are cases where you need to add more constants. This
+example should cover those:
+
+$$
+\f{1}{(x-2)^3(x^2 + 1)}
+= \f{A}{x-2}
++ \f{B}{(x-2)^2}
++ \f{C}{(x-2)^3}
++ \f{Dx + E}{x^2 + 4}
+$$
+
+Reason for $A$, $B$, and $C$: $(x-2)^3$ has a degree of 3 so at each
+level you have to assign a constant to catch possible coefficients.
+
+Reason for $Dx + E$: $(x^2+4)$ is of degree 2 so you need to make it
+one degree less to be flexible enough to catch all solutions.
