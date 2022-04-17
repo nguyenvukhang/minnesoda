@@ -236,3 +236,39 @@ $$
 $$
 
 {/* TODO: add a brief explanation for the internet */}
+
+### change base
+
+Let $\displaystyle\inti{f(x)}{x} = g(x)$. It follows that $\f{\d}{\d x} g(x) = f(x)$. Then
+
+$$
+\f{\d}{\d u}\intd{0}{u}{f(t)}{t} = f(u)
+$$
+
+Because
+
+$$
+\begin{align}
+\f{\d}{\d u}\intd{0}{u}{f(t)}{t}
+&= \f{\d}{\d u}\Lr{g(u) - g(0)} \\
+&= \f{\d}{\d u}\Lr{g(u)} \\
+&= f(u)
+\end{align}
+$$
+
+Extending with chain rule,
+
+$$
+\f{\d}{\d u}\intd{0}{h(u)}{f(t)}{t} = f(h(u))\cdot h'(u)
+$$
+
+Because
+
+$$
+\begin{align}
+\f{\d}{\d u}\intd{0}{h(u)}{f(t)}{t}
+&= \f{\d}{\d u}\Lr{g(h(u)) - g(0)} \\
+&= \f{\d}{\d u}\Lr{g(h(u))} \\
+&= f(h(u)) \cdot h'(u)
+\end{align}
+$$
