@@ -330,3 +330,34 @@ $$
 $$
 
 This removes a lot of fluff since we just need to find the zeros.
+
+### Core integration identities
+
+Taking rotation about the $x$-axis:
+
+#### Shell Method (Volume)
+
+$$
+V_x = \pi \inti{y^2}{x}
+$$
+
+#### Disc Method (Volume)
+
+$$
+V_x = 2\pi \inti{xy}{y}
+$$
+
+#### Arc Length
+
+$$
+L = \inti{\sqrt{1 + \lr{\dd{y}{x}}^2  }}{x}
+$$
+
+#### Surface Area
+
+$$
+\begin{align}
+S_x &= 2\pi \inti{y \sqrt{1 + \lr{\dd{y}{x}}^2  }}{x} \\
+    &= 2\pi \inti{y \sqrt{1 + \lr{\dd{x}{y}}^2  }}{y}
+\end{align}
+$$
