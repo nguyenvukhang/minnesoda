@@ -23,6 +23,7 @@ const MathjaxOpts = {
       dd: ['\\dfrac{\\mathrm{d} #1}{\\mathrm{d} #2}', 2],
       sech: '\\mathrm{sech}',
       csch: '\\mathrm{csch}',
+      inv: '^{-1}',
       ...getNumberSets(NumberSets)
     },
   },
