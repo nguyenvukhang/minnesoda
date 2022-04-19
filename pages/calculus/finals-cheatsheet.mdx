@@ -412,3 +412,53 @@ $$
 
 Points where sign of derivative changes: include undefined points.
 (sign may change after passing through the undefined point)
+
+### precise definition finesse
+
+s.t.w. = such that whenever
+
+##### Case 1: (finite, finite)
+$$
+\lim_{x \to a}f(x) = L
+$$
+Let $\epsilon > 0$. Choose $\delta = \min\LR{1, \f{\epsilon}{k}}$ s.t.w.
+$0<|x-a|<\delta$,
+$$
+f(x) - L < \ldots < k\delta \leq \epsilon
+$$
+
+##### Case 2: (finite, infinite)
+$$
+\lim_{x \to a}f(x) = \infty
+$$
+Let $M > 0$. Choose $\delta = \f{k}{M}$ s.t.w. $0<|x-a|<\delta$,
+$$
+f(x) > \ldots > \f{k}{\delta} = M
+$$
+
+##### Case 3: (infinite, finite)
+$$
+\lim_{x\to\infty}f(x) = L
+$$
+Let $\epsilon > 0$. Choose $N = \max\LR{1,\f{k}{\epsilon}}$ s.t.w. $x > N$,
+$$
+f(x) - L < \ldots < \f{k}{N} \leq \epsilon
+$$
+
+##### Case 4: (infinite, infinite)
+$$
+\lim_{x\to\infty}f(x) = \infty
+$$
+Let $M > 0$. Choose $N = \f{M}{k}$ s.t.w. $x > N$,
+$$
+f(x) > \ldots > kN = M
+$$
+
+##### left/right side buffs
+
+If it's nicely given that 
+$$
+\lim_{x \to a^+}f(x) = L
+$$
+then we can use the starting condition $0 < x - a < \delta$ without
+the absolute sign. (Since $x > a$)
