@@ -463,5 +463,42 @@ $$
 then we can use the starting condition $0 < x - a < \delta$ without
 the absolute sign. (Since $x > a$)
 
+### Leibniz Integral Rule
+
+For an integral with the form
+
+$$
+\intd{a(x)}{b(x)}{f(x,t)}{t}
+$$
+
+where $-\infty < a(x),b(x) < \infty$, we then have
+
+$$
+\f{\d}{\d x}\lr{\intd{a(x)}{b(x)}{f(x,t)}{t}}
+= f(x, b(x)) \cdot \f{\d}{\d x}b(x)
+- f(x, a(x)) \cdot \f{\d}{\d x}a(x)
++ \intd{a(x)}{b(x)}{\f{\partial}{\partial x}f(x,t)}{t}
+$$
+
+where the partial derivative indicates that inside the integral, only
+the variation of $f(x,t)$ with $x$ is considered in taking the
+derivative.
+
+If $a(x)$ and $b(x)$ are constants rather than functions of $x$, we have the
+special case:
+
+$$
+\f{\d}{\d x}\lr{\intd{a}{b}{f(x,t)}{t}}
+= \intd{a}{b}{\f{\partial}{\partial x}f(x,t)}{t}
+$$
+
+Besides, if $a(x) = c$ and $b(x) = x$, we have
+
+$$
+\f{\d}{\d x}\lr{\intd{c}{x}{f(x,t)}{t}}
+= f(x, x)
++ \intd{c}{x}{\f{\partial}{\partial x}f(x,t)}{t}
+$$
+
 Try again list
-* three.pdf [2,3,4,5b]
+* three.pdf [2,3,4,5b,6b,8b]
