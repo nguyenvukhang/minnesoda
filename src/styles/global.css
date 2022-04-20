@@ -21,6 +21,7 @@
   p, ol, ul { @apply leading-7; }
   /* post-paragraph spacing */
   p, .tw-table, ul, ol, pre { @apply mb-3 ;}
+  .tw-table { @apply border-collapse; }
   a  { @apply text-blue-600 hover:underline ;}
 
   ul { @apply list-disc    list-outside pl-12 }
@@ -34,10 +35,10 @@
    * tables
    * see also: .tw-table
    */
-  thead, tbody, th, tr, td {
-    @apply border border-gray-200 py-1 px-2;
+  th, tr, td {
+    @apply border border-gray-300 py-2 px-3;
   }
-  th { @apply bg-gray-50; }
+  th { @apply bg-gray-100; }
 
   blockquote { @apply text-gray-400 border-l-4 border-l-gray-200 pl-4 ;}
 
