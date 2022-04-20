@@ -2,32 +2,33 @@ const Table = ({ children }) => (
   <table className="border-collapse table-auto tw-table">{children}</table>
 )
 
-const padding = 'p-2'
-const border = 'border border-gray-600'
-
 /* CONTAINERS */
 
 // table body wrapper
-const tbody = ({ children }) => (
-  <tbody className={`bg-green-100 ${padding} ${border}`}>{children}</tbody>
-)
+const tbody = ({ children }) => <tbody>{children}</tbody>
 
 // table header wrapper
-const thead = ({ children }) => (
-  <thead className={`bg-green-100 ${padding} ${border}`}>{children}</thead>
-)
+const thead = ({ children }) => <thead>{children}</thead>
+
+/* ROW */
 
 // table row
 const tr = ({ children }) => <tr>{children}</tr>
 
+/* CELLS */
+
 // table header element
 const th = ({ children }) => (
-  <th className={`bg-green-100 ${padding} ${border}`}>{children}</th>
+  <th>
+    <div className="text-center">{children}</div>
+  </th>
 )
 
 // table element
 const td = ({ children }) => (
-  <td className={`bg-yellow-100 ${padding} ${border}`}>{children}</td>
+  <td>
+    <div className="text-center">{children}</div>
+  </td>
 )
 
 export { thead, tbody, td, tr, th }

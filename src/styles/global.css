@@ -35,7 +35,7 @@
    * tables
    * see also: .tw-table
    */
-  th, tr, td {
+  th, td {
     @apply border border-gray-300 py-2 px-3;
   }
   th { @apply bg-gray-100; }
